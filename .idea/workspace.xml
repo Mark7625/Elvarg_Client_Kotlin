@@ -12,6 +12,18 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -48,5 +60,13 @@
       <screen x="0" y="0" width="1228" height="660" />
     </state>
     <state x="206" y="0" key="#Template_Data_Languages/0.0.1228.660@0.0.1228.660" timestamp="1601864690194" />
+    <state x="394" y="85" key="FileChooserDialogImpl" timestamp="1601867634054">
+      <screen x="0" y="0" width="1228" height="660" />
+    </state>
+    <state x="394" y="85" key="FileChooserDialogImpl/0.0.1228.660@0.0.1228.660" timestamp="1601867634054" />
+    <state x="0" y="0" key="new project wizard" timestamp="1601867646843">
+      <screen x="0" y="0" width="1228" height="660" />
+    </state>
+    <state x="0" y="0" key="new project wizard/0.0.1228.660@0.0.1228.660" timestamp="1601867646843" />
   </component>
 </project>

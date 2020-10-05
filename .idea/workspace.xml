@@ -24,6 +24,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -36,8 +43,14 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Home\Desktop\Elvarg_Kotlin\Elvarg_Client_Kotlin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Home\Desktop\Elvarg_Kotlin\Elvarg_Client_Kotlin" />
     </key>
@@ -56,6 +69,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="206" y="0" key="#Project_Structure" timestamp="1601868356516">
+      <screen x="0" y="0" width="1228" height="660" />
+    </state>
+    <state x="206" y="0" key="#Project_Structure/0.0.1228.660@0.0.1228.660" timestamp="1601868356516" />
     <state x="206" y="0" key="#Template_Data_Languages" timestamp="1601864690194">
       <screen x="0" y="0" width="1228" height="660" />
     </state>

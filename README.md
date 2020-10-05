@@ -8,19 +8,20 @@
 
 
 
-
+[![Build Status](https://img.shields.io/travis/Mark7625/Elvarg_Client_Kotlin?style=for-the-badge)](https://travis-ci.org/github/Mark7625/Elvarg_Client_Kotlin)
+[![ktlint](https://img.shields.io/badge/code%20style-%E2%9D%A4-FF4081.svg?style=for-the-badge)](https://ktlint.github.io/)
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-
+[![Discord](https://img.shields.io/discord/762499838885494834?style=for-the-badge)](https://discord.gg/YekJnCg)
 
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
   <a href="https://github.com/Mark7625/Elvarg_Client_Kotlin">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://support.runescape.com/hc/article_attachments/360002485898/App_Icon-Circle.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Elvarg Client Kotlin</h3>

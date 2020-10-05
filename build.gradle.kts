@@ -1,3 +1,4 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 group = "com.runescape"
 version = "1.0"
@@ -9,11 +10,20 @@ repositories {
 
 plugins {
     kotlin("jvm") version "1.3.72"
+    id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
     jacoco
 }
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+}
+
+ktlint {
+    version.set("0.37.2")
+    outputToConsole.set(true)
+    reporters {
+        reporter(ReporterType.CHECKSTYLE)
+    }
 }
 
 tasks.compileKotlin {

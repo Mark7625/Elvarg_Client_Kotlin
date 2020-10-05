@@ -46,9 +46,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Home\Desktop\Elvarg_Kotlin\Elvarg_Client_Kotlin\images" />
       <recent name="C:\Users\Home\Desktop\Elvarg_Kotlin\Elvarg_Client_Kotlin" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -81,6 +83,10 @@
       <screen x="0" y="0" width="1228" height="660" />
     </state>
     <state x="394" y="85" key="FileChooserDialogImpl/0.0.1228.660@0.0.1228.660" timestamp="1601867634054" />
+    <state x="115" y="0" key="SettingsEditor" timestamp="1601870702437">
+      <screen x="0" y="0" width="1228" height="660" />
+    </state>
+    <state x="115" y="0" key="SettingsEditor/0.0.1228.660@0.0.1228.660" timestamp="1601870702437" />
     <state x="0" y="0" key="new project wizard" timestamp="1601867646843">
       <screen x="0" y="0" width="1228" height="660" />
     </state>

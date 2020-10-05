@@ -4,9 +4,6 @@ language: java
 jdk:
   - openjdk11
 
-# http://docs.travis-ci.com/user/migrating-from-legacy
-sudo: false
-
 before_install:
   - chmod +x gradlew
   - chmod +x gradle/wrapper/gradle-wrapper.jar

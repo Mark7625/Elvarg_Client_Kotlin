@@ -103,7 +103,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Discord: [https://discord.gg/9uN57Z](https://discord.gg/9uN57Z)
+Discord: [https://discord.gg/YekJnCg](https://discord.gg/YekJnCg)
 
 
 

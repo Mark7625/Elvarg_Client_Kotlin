@@ -21,7 +21,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Mark7625/Elvarg_Client_Kotlin">
-    <img src="https://support.runescape.com/hc/article_attachments/360002485898/App_Icon-Circle.png" alt="Logo" width="80" height="80">
+    <img src="https://i.imgur.com/FMMIQWH.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Elvarg Client Kotlin</h3>
@@ -111,7 +111,7 @@ Discord: [https://discord.gg/9uN57Z](https://discord.gg/9uN57Z)
 ## Acknowledgements
 * [Professor Oak](https://www.rune-server.ee/runescape-development/rs2-server/downloads/651062-elvarg-131osrs-base-netty-4-1-8-jaggrab-perfect-combat-extremely-stable-release.html)
 * [Mark](https://www.rune-server.ee/members/mark_/) 
-
+* [Arrav Team](https://www.rune-server.ee/runescape-development/rs2-server/downloads/681637-arrav-edgeville-avarrocka-something-special.html) 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 

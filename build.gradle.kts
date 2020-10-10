@@ -16,6 +16,9 @@ plugins {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation("io.github.microutils:kotlin-logging:1.12.0")
+    implementation("org.slf4j:slf4j-simple:1.7.12")
+    implementation("com.apple:AppleJavaExtensions:1.4")
 }
 
 ktlint {

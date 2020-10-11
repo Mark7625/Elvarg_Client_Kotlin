@@ -19,6 +19,7 @@ dependencies {
     implementation("io.github.microutils:kotlin-logging:1.12.0")
     implementation("org.slf4j:slf4j-simple:1.7.12")
     implementation("com.apple:AppleJavaExtensions:1.4")
+    implementation("com.google.code.gson:gson:2.8.6")
 }
 
 ktlint {

@@ -22,46 +22,42 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.runescape.utils.zip
+package com.runescape.draw.screens
 
-class BZip2DecompressionState {
+import com.google.gson.GsonBuilder
+import com.runescape.utils.FileUtils
+import java.nio.file.Paths
 
-    lateinit var tt: IntArray
-    var unzftab: IntArray = IntArray(256)
-    var cftab: IntArray = IntArray(257)
-    var inUse: BooleanArray = BooleanArray(256)
-    var inUse16: BooleanArray = BooleanArray(16)
-    var seqToUnseq: ByteArray = ByteArray(256)
-    var mtfa: ByteArray = ByteArray(4096)
-    var mtfbase: IntArray = IntArray(16)
-    var selector: ByteArray = ByteArray(18002)
-    var selectorMtf: ByteArray = ByteArray(18002)
-    var len: Array<ByteArray> = Array(6) { ByteArray(258) }
-    var limit: Array<IntArray> = Array(6) { IntArray(258) }
-    var base: Array<IntArray> = Array(6) { IntArray(258) }
-    var perm: Array<IntArray> = Array(6) { IntArray(258) }
-    var minLens: IntArray = IntArray(6)
-    lateinit var compressed: ByteArray
-    var nextIn = 0
-    var decompressedLength = 0
-    var totalInLo32 = 0
-    var totalInHi32 = 0
-    lateinit var decompressed: ByteArray
-    var nextOut = 0
-    var length = 0
-    var totalOutLo32 = 0
-    var totalOutHigh32 = 0
-    var aByte573: Byte = 0
-    var anInt574 = 0
-    var aBoolean575 = false
-    var bsBuff = 0
-    var bsLive = 0
-    var anInt578 = 0
-    var currentBlock = 0
-    var randomised = 0
-    var anInt581 = 0
-    var anInt582 = 0
-    var anInt584 = 0
-    var nInUse = 0
-    var anInt601 = 0
+data class Data(
+    val worlds: MutableList<World> = emptyList<World>().toMutableList()
+)
+
+data class World(
+    var ip: Long,
+    var port: Int,
+    var name: String,
+    var icon: IconSprites,
+    var text: String
+)
+
+enum class IconSprites(val sprite: Int) {
+    UK(9)
+}
+
+object WorldSelector {
+
+    /**
+     *  [gson] Gson Builder
+     */
+    val gson = GsonBuilder().setPrettyPrinting().create()
+
+    /**
+     *  [data] Data for settings
+     */
+    var data: Data? = null
+
+    fun load() {
+        val file = Paths.get(FileUtils.getResource("configs.json").toURI()).toFile()
+        data = gson.fromJson(file.readText(), Data::class.java)
+    }
 }

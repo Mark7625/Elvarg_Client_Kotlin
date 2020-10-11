@@ -27,6 +27,7 @@ package com.runescape.cache
 import com.runescape.Client
 import com.runescape.Constants
 import com.runescape.cache.impl.MediaLoader
+import com.runescape.draw.fonts.FontType
 import com.runescape.draw.screens.LoaderScreen
 import com.runescape.utils.Signlink
 import mu.KotlinLogging
@@ -38,24 +39,35 @@ class CacheUnpacker(private val client: Client) {
     /**
      * Main runnable method.
      */
-    @ExperimentalStdlibApi
     fun load() {
+
         logger.info { "${Constants.NAME} Starting Up." }
         val centerX = client.frameWidth / 2
         val centerY = client.frameHeight / 2
         this.init()
 
-        message = "Preparing packing modules."
+        try {
 
-        client.spriteCache.init()
+            message = "Preparing packing modules."
 
-        client.startThread(LoaderScreen(centerX, centerY, client), 8)
-        load(MediaLoader(createArchive(4)))
-        client.titleArchive = createArchive(1)
+            client.spriteCache.init()
 
-        finished = true
-        message = ""
-        System.gc()
+            client.titleArchive = createArchive(1)
+
+            FontType.initialize()
+
+            client.startThread(LoaderScreen(centerX, centerY, client), 8)
+            load(MediaLoader(createArchive(4)))
+
+            finished = true
+            message = ""
+            System.gc()
+
+            return
+        } catch (exception: Exception) {
+            exception.printStackTrace()
+        }
+        client.loadingError = true
     }
 
     private fun load(loader: CacheLoader) {
@@ -80,7 +92,7 @@ class CacheUnpacker(private val client: Client) {
      * Finalize stage.
      */
     fun reset() {
-        successfullyLoaded = true
+        finished = true
     }
 
     private fun createArchive(file: Int): FileArchive {
@@ -95,7 +107,6 @@ class CacheUnpacker(private val client: Client) {
     companion object {
         var message = ""
         var finished = false
-        var successfullyLoaded = false
         var progress = 0
     }
 }

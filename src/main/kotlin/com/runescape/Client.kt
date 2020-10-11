@@ -31,6 +31,15 @@ import com.runescape.cache.FileStore
 import com.runescape.cache.defs.SpriteCache
 import com.runescape.draw.ProducingGraphicsBuffer
 import com.runescape.draw.Rasterizer2D
+import com.runescape.draw.Rasterizer2D.drawBox
+import com.runescape.draw.Rasterizer2D.drawBoxOutline
+import com.runescape.draw.Sprite
+import com.runescape.draw.fonts.FontType
+import com.runescape.draw.fonts.RSFont.Companion.drawBasicString
+import com.runescape.draw.fonts.RSFont.Companion.getTextWidth
+import com.runescape.draw.screens.LoginScreen
+import com.runescape.draw.screens.World
+import com.runescape.io.LoginMessages
 import com.runescape.utils.Signlink
 import java.awt.Color
 import java.io.IOException
@@ -44,20 +53,54 @@ class Client : ClientEngine() {
     lateinit var titleArchive: FileArchive
     val spriteCache = SpriteCache()
     lateinit var loginBoxImageProducer: ProducingGraphicsBuffer
+    val loggedIn = false
+    var loadingError = false
+    private var loginScreen: LoginScreen = LoginScreen(this)
+    var firstLoginMessage: String = LoginMessages.DEFUALT.message1
+    var secondLoginMessage: String = LoginMessages.DEFUALT.message2
+    var myUsername = "Mark"
+    var myPassword = "abc123"
+    var myPin = ""
+    var loginScreenCursorPos = 0
+    var tick = 0
+    var currentWorld: World? = null
 
     /**
      * Run / Starts the run process.
      */
     override fun run() {
-        if (!CacheUnpacker.successfullyLoaded) {
+        if (!CacheUnpacker.finished) {
             super.run()
         }
     }
 
-    @ExperimentalStdlibApi
+    fun clickInRegion(x: Int, y: Int, drawnSprite: Sprite) = clickInRegion(x, y, drawnSprite.myWidth, drawnSprite.myHeight)
+
+    fun clickInRegion(x: Int, y: Int, width: Int, height: Int) = super.clickX >= x && super.clickX <= x + width && super.clickY >= y && super.clickY <= y + height
+
+    fun mouseInRegion(x: Int, y: Int, drawnSprite: Sprite) = mouseInRegion(x, y, drawnSprite.myWidth, drawnSprite.myHeight)
+
+    fun mouseInRegion(x: Int, y: Int, width: Int, height: Int) = super.mouseX >= x && super.mouseX <= x + width && super.mouseY >= y && super.mouseY <= y + height
+
     override fun initialize() {
         Signlink.run()
         cacheHandler.load()
+    }
+
+    override fun update() {
+        if (!loggedIn && CacheUnpacker.finished) {
+            loginScreen.renderScreen()
+        }
+    }
+
+    override fun process() {
+        if (loadingError) {
+            return
+        }
+        tick++
+        if (!loggedIn && CacheUnpacker.finished) {
+            loginScreen.processInput()
+        }
     }
 
     /**
@@ -83,6 +126,30 @@ class Client : ClientEngine() {
     fun setupLoginScreen() {
         loginBoxImageProducer = ProducingGraphicsBuffer(frameWidth, frameHeight)
         Rasterizer2D.clear()
+    }
+
+    fun login(username: String, password: String, pin: String, reconnecting: Boolean) {
+        println(username)
+    }
+
+    fun drawHoverBox(xPos: Int, yPos: Int, text: String) {
+        var positionY = yPos
+        val results = text.split("\n").toTypedArray()
+        val height = results.size * 16 + 6
+        var width: Int
+        width = FontType.REGULAR.getTextWidth(results[0]) + 6
+        for (i in 1 until results.size) {
+            if (width <= FontType.REGULAR.getTextWidth(results[i]) + 6) {
+                width = FontType.REGULAR.getTextWidth(results[i]) + 6
+            }
+        }
+        drawBox(xPos, positionY, width, height - 3 * results.size, 0xFFFFA0)
+        drawBoxOutline(xPos, positionY, width, height - 3 * results.size, 0)
+        positionY += 14
+        for (i in results.indices) {
+            FontType.REGULAR.drawBasicString(results[i], xPos + 3, positionY, 0x000000, 0)
+            positionY += 13
+        }
     }
 
     companion object {

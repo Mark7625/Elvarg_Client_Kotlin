@@ -48,7 +48,6 @@ class LoaderScreen(private val x: Int, private val y: Int, private val client: C
 
     @Synchronized
     private fun updateLoading(centerX: Int, centerY: Int) {
-
         client.setupLoginScreen()
         client.loginBoxImageProducer.initDrawingArea()
 
@@ -71,15 +70,13 @@ class LoaderScreen(private val x: Int, private val y: Int, private val client: C
 
         while (lastPercent < progress) {
             lastPercent++
-
             val progresspixels = lastPercent * 3
-
             Rasterizer2D.drawBoxOutline(centerX - 152, centerY, 304, 34, 0x8c1111)
             Rasterizer2D.drawBoxOutline(centerX - 151, centerY + 1, 302, 32, 0)
             Rasterizer2D.drawBox(centerX - 150, centerY + 2, progresspixels, 30, 0x8c1111)
             Rasterizer2D.drawBox(centerX - 150 + progresspixels, centerY + 2, 300 - progresspixels, 30, 0)
         }
-
+        client.spriteCache.lookup(5).drawSprite(349, 0)
         Client.instance.loginBoxImageProducer.drawGraphics(0, 0, Client.instance.graphics)
     }
 }

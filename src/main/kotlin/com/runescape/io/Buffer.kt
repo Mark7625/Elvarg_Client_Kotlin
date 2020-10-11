@@ -58,4 +58,7 @@ class Buffer(val payload: ByteArray) {
                 (payload[currentPosition - 1].toInt() and 0xff)
             )
     }
+    fun readUnsignedByte(): Int = payload[currentPosition++].toInt() and 0xff
+
+    fun readSignedByte(): Byte = payload[currentPosition++]
 }

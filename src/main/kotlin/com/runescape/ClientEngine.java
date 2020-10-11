@@ -200,7 +200,7 @@ public class ClientEngine extends Applet implements Runnable, MouseListener, Mou
         }
     }
 
-    public final int getKey() {
+     public int getKey() {
         int key = -1;
         if(keyInputPos != keyOutputPos) {
             key = keyQueue[keyOutputPos];
@@ -588,7 +588,7 @@ public class ClientEngine extends Applet implements Runnable, MouseListener, Mou
     @Override
     public final void windowClosing(WindowEvent windowevent) {
         String closeOptions[] = {"Yes", "No"};
-        int userPrompt = JOptionPane.showOptionDialog(windowevent.getComponent(), "Are you sure you want to exit Arrav?", "Arrav", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, closeOptions , closeOptions[1]);
+        int userPrompt = JOptionPane.showOptionDialog(windowevent.getComponent(), "Are you sure you want to exit?", "Exit?", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, closeOptions , closeOptions[1]);
         if(userPrompt == JOptionPane.YES_OPTION) {
             destroy();
         }
@@ -608,10 +608,6 @@ public class ClientEngine extends Applet implements Runnable, MouseListener, Mou
 
     @Override
     public final void windowOpened(WindowEvent windowevent) {
-    }
-
-    public static int random(int number) {
-        return (int) (Math.random() * (double) (number + 1));
     }
 
 }

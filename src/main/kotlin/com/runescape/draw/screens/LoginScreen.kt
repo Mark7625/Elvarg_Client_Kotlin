@@ -30,6 +30,7 @@ import com.runescape.draw.Sprite.Action
 import com.runescape.draw.fonts.FontType
 import com.runescape.draw.fonts.RSFont.Companion.drawBasicString
 import com.runescape.draw.fonts.RSFont.Companion.drawCenteredString
+import com.runescape.io.RichPresence
 import com.runescape.utils.StringUtils
 
 class LoginScreen(private val client: Client) {
@@ -41,6 +42,7 @@ class LoginScreen(private val client: Client) {
     }
 
     fun renderScreen() {
+        RichPresence.setTopText("Login Screen")
         val centerX = client.frameWidth / 2 - 45
         val centerY = client.frameHeight / 2
         client.setupLoginScreen()

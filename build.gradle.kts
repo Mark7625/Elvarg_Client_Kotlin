@@ -6,6 +6,8 @@ version = "1.0"
 repositories {
     mavenCentral()
     jcenter()
+    maven(url = "http://repo.runelite.net")
+    maven(url = "https://jitpack.io/")
 }
 
 plugins {
@@ -20,6 +22,8 @@ dependencies {
     implementation("org.slf4j:slf4j-simple:1.7.12")
     implementation("com.apple:AppleJavaExtensions:1.4")
     implementation("com.google.code.gson:gson:2.8.6")
+    implementation("net.runelite.pushingpixels:substance:8.0.02")
+    implementation ("com.github.Vatuu:discord-rpc:1.6.2")
 }
 
 ktlint {

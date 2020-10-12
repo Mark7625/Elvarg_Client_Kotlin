@@ -42,6 +42,7 @@ import com.runescape.draw.screens.World
 import com.runescape.io.Buffer
 import com.runescape.io.LoginResponse
 import com.runescape.io.PacketSender
+import com.runescape.io.RichPresence
 import com.runescape.net.BufferedConnection
 import com.runescape.net.IsaacCipher
 import com.runescape.utils.Signlink
@@ -274,6 +275,7 @@ class Client : ClientEngine() {
                 packetSender = PacketSender(cipher)
                 super.idleTime = 0
 
+                RichPresence.setTopText("Logged in: $username")
 
                 setupGameplayScreen()
                 return

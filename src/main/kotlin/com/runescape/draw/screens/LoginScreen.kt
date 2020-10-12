@@ -66,6 +66,7 @@ class LoginScreen(private val client: Client) {
 
                 client.spriteCache.lookup(1).drawSprite(203, 152)
                 client.spriteCache.lookup(2).drawSprite(388, 282, Action.CLICK) { state = State.START }
+
                 client.spriteCache.lookup(2).drawSprite(227, 282, Action.CLICK) {
                     client.login(client.myUsername, client.myPassword, client.myPin, false)
                 }
@@ -73,10 +74,10 @@ class LoginScreen(private val client: Client) {
                 client.spriteCache.lookup(26).drawSprite(723, 463)
 
                 if (client.firstLoginMessage.isNotEmpty()) {
-                    FontType.BOLD.drawBasicString(client.firstLoginMessage, 275, 210 - 15, 0xffff00, 1)
-                    FontType.BOLD.drawBasicString(client.secondLoginMessage, 275, 210, 0xffff00, 1)
+                    FontType.BOLD.drawCenteredString(client.firstLoginMessage, 350, 210 - 15, 0xffff00, 1)
+                    FontType.BOLD.drawCenteredString(client.secondLoginMessage, 350, 210, 0xffff00, 1)
                 } else {
-                    FontType.BOLD.drawBasicString(client.secondLoginMessage, 275, 210 - 7, 0xffff00, 1)
+                    FontType.BOLD.drawCenteredString(client.secondLoginMessage, 350, 210 - 7, 0xffff00, 1)
                 }
 
                 FontType.BOLD.drawBasicString("Login: " + client.myUsername + flash(0), 290, 240 - 7, 0xffffff, 1)

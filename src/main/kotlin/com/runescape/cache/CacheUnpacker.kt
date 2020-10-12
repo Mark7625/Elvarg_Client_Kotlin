@@ -63,6 +63,8 @@ class CacheUnpacker(private val client: Client) {
             message = ""
             System.gc()
 
+            client.setBounds()
+
             return
         } catch (exception: Exception) {
             exception.printStackTrace()

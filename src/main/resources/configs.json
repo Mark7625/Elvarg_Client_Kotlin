@@ -2,14 +2,14 @@
   "worlds": [
     {
       "ip": 3,
-      "port": 4554,
+      "port": 43595,
       "name": "Dev",
       "icon": "UK",
       "text": "Development World\nDevs Only"
     },
     {
       "ip": 4,
-      "port": 4554,
+      "port": 43595,
       "name": "Dev",
       "icon": "UK",
       "text": "Development World\nDevs Only"

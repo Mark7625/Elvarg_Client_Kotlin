@@ -40,8 +40,8 @@ internal class HashTable {
             return
         } catch (runtimeexception: RuntimeException) {
             println(
-                "91499, " + linkable + ", " + key + ", "
-                        + 7.toByte() + ", " + runtimeexception.toString()
+                "91499, " + linkable + ", " + key + ", " +
+                    7.toByte() + ", " + runtimeexception.toString()
             )
         }
         throw RuntimeException()
@@ -61,5 +61,4 @@ internal class HashTable {
             node!!.next = node
         }
     }
-
 }

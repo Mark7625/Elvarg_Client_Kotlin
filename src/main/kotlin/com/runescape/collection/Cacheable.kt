@@ -13,5 +13,4 @@ class Cacheable : Linkable() {
             previousCacheable = null
         }
     }
-
 }

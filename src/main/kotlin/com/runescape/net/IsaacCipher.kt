@@ -24,12 +24,15 @@ class IsaacCipher(seed: IntArray) {
             val j = memory[i]
             when {
                 i and 3 == 0 -> accumulator = accumulator xor accumulator shl 13
-                i and 3 == 1 -> accumulator =
-                    accumulator xor accumulator ushr 6
-                i and 3 == 2 -> accumulator =
-                    accumulator xor accumulator shl 2
-                i and 3 == 3 -> accumulator =
-                    accumulator xor accumulator ushr 16
+                i and 3 == 1 ->
+                    accumulator =
+                        accumulator xor accumulator ushr 6
+                i and 3 == 2 ->
+                    accumulator =
+                        accumulator xor accumulator shl 2
+                i and 3 == 3 ->
+                    accumulator =
+                        accumulator xor accumulator ushr 16
             }
             accumulator += memory[i + 128 and 0xff]
             var k: Int

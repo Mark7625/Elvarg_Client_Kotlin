@@ -14,5 +14,4 @@ open class Linkable {
             next = null
         }
     }
-
 }

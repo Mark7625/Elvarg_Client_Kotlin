@@ -59,5 +59,4 @@ class Queue {
         head.nextCacheable = head
         head.previousCacheable = head
     }
-
 }

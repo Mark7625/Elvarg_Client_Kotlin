@@ -31,7 +31,6 @@ import com.runescape.cache.defs.ConfigurationLoaders
 import com.runescape.cache.defs.Definitions
 import org.reflections.Reflections
 
-
 class ConfigurationLoader(val archive: FileArchive) : CacheLoader {
 
     override fun message() = "Loading configurations."
@@ -47,6 +46,5 @@ class ConfigurationLoader(val archive: FileArchive) : CacheLoader {
             val instance = def.newInstance()
             instance.init(archie = archive)
         }
-
     }
 }

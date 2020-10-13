@@ -1,6 +1,5 @@
 package com.runescape.collection
 
-
 /**
  * A least-recently used cache of references, backed by a [HashTable] and a [Queue].
  */
@@ -78,5 +77,4 @@ class ReferenceCache(index: Int) {
             }
         } while (true)
     }
-
 }

@@ -50,7 +50,6 @@ import java.io.IOException
 import java.net.InetAddress
 import java.net.Socket
 
-
 class Client : ClientEngine() {
 
     var indices: Array<FileStore?> = arrayOfNulls(FileStore.Store.values().size)
@@ -71,7 +70,7 @@ class Client : ClientEngine() {
     var loginScreenCursorPos = 0
     var tick = 0
     var currentWorld: World? = null
-    var packetSender : PacketSender = PacketSender(null)
+    var packetSender: PacketSender = PacketSender(null)
     lateinit var socketStream: BufferedConnection
     private val loginBuffer: Buffer = Buffer(ByteArray(5000))
     private val incoming: Buffer = Buffer(ByteArray(5000))
@@ -146,20 +145,19 @@ class Client : ClientEngine() {
     }
 
     private fun moveCameraWithPlayer() {
-        gameScreenImageProducer.drawGraphics(4,4,super.graphics)
+        gameScreenImageProducer.drawGraphics(4, 4, super.graphics)
     }
 
     private fun loadingStages() {
         if (loadingStage === 2) {
             gameScreenImageProducer.initDrawingArea()
             drawLoadingMessages(1, "Loading - please wait.")
-            gameScreenImageProducer.drawGraphics(4, 4,super.graphics)
+            gameScreenImageProducer.drawGraphics(4, 4, super.graphics)
             loadingStage = 1
         }
-
     }
 
-    fun readPacket() : Boolean {
+    fun readPacket(): Boolean {
         return true
     }
 
@@ -171,10 +169,8 @@ class Client : ClientEngine() {
         drawBox(1, 1, 1, height, 0xffffff)
         drawBox(1, height, width + 6, 1, 0xffffff)
         drawBox(width + 6, 1, 1, height, 0xffffff)
-        FontType.REGULAR.drawBasicString(s, 18, width / 2 + 5,0xffffff,1)
+        FontType.REGULAR.drawBasicString(s, 18, width / 2 + 5, 0xffffff, 1)
     }
-
-
 
     /**
      * Run / Starts the run process.
@@ -206,7 +202,7 @@ class Client : ClientEngine() {
         clear()
     }
 
-    private fun setMessages(message : LoginResponse) {
+    private fun setMessages(message: LoginResponse) {
         firstLoginMessage = message.message1
         secondLoginMessage = message.message2
         return
@@ -264,7 +260,6 @@ class Client : ClientEngine() {
                 for (index in 0..3) seed[index] += 50
                 socketStream.queueBytes(loginBuffer.currentPosition, loginBuffer.payload)
                 response = LoginResponse.getResponse(socketStream.read())
-
             }
 
             if (response == LoginResponse.LOGIN) {
@@ -274,24 +269,21 @@ class Client : ClientEngine() {
                 packetSender = PacketSender(cipher)
                 super.idleTime = 0
 
-
                 setupGameplayScreen()
                 return
             }
 
-            if(response != LoginResponse.NONE) {
+            if (response != LoginResponse.NONE) {
                 println("hey123")
                 setMessages(response)
             }
-
-        } catch (_ex : IOException) {
+        } catch (_ex: IOException) {
             firstLoginMessage = ""
-        } catch (e : Exception) {
-            println("Error while generating uid. Skipping step.");
-            e.printStackTrace();
+        } catch (e: Exception) {
+            println("Error while generating uid. Skipping step.")
+            e.printStackTrace()
         }
-        secondLoginMessage = "Error connecting to server.";
-
+        secondLoginMessage = "Error connecting to server."
     }
 
     fun setBounds() {

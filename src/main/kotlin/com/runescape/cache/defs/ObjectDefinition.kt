@@ -29,14 +29,13 @@ class ObjectDefinition : Definitions() {
         }
     }
 
-
     fun lookup(id: Int): ObjectDefinition {
         var id = id
         if (id > streamIndices.size) {
             id = streamIndices.size - 1
         }
         for (index in 0..19) {
-            if (cache[index]!!.type === id){
+            if (cache[index]!!.type === id) {
                 return cache[index]!!
             }
         }
@@ -80,7 +79,6 @@ class ObjectDefinition : Definitions() {
         varbit = -1
         varp = -1
     }
-
 
     fun decode(buffer: Buffer) {
         while (true) {
@@ -148,7 +146,7 @@ class ObjectDefinition : Definitions() {
                     interactions = arrayOfNulls(5)
                 }
                 interactions[opcode - 30] = buffer.readString()
-                if (interactions[opcode - 30].equals("Hidden",ignoreCase = true)) {
+                if (interactions[opcode - 30].equals("Hidden", ignoreCase = true)) {
                     interactions[opcode - 30] = null
                 }
             } else if (opcode == 40) {
@@ -256,7 +254,6 @@ class ObjectDefinition : Definitions() {
         }
     }
 
-
     var lowMemory = false
     lateinit var stream: Buffer
     lateinit var streamIndices: IntArray
@@ -304,5 +301,4 @@ class ObjectDefinition : Definitions() {
     lateinit var interactions: Array<String?>
     lateinit var originalModelTexture: ShortArray
     lateinit var modifiedModelTexture: ShortArray
-
 }

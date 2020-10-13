@@ -26,6 +26,7 @@ package com.runescape.cache
 
 import com.runescape.Client
 import com.runescape.Constants
+import com.runescape.cache.impl.ConfigurationLoader
 import com.runescape.cache.impl.MediaLoader
 import com.runescape.draw.fonts.FontType
 import com.runescape.draw.screens.LoaderScreen
@@ -58,6 +59,7 @@ class CacheUnpacker(private val client: Client) {
 
             client.startThread(LoaderScreen(centerX, centerY, client), 8)
             load(MediaLoader(createArchive(4)))
+            load(ConfigurationLoader(createArchive(2)))
 
             finished = true
             message = ""

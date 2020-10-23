@@ -54,7 +54,3 @@ tasks.test {
     }
     finalizedBy(tasks.jacocoTestReport)
 }
-
-tasks.wrapper {
-    distributionType = Wrapper.DistributionType.ALL
-}

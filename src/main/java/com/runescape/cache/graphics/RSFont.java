@@ -2,7 +2,7 @@ package com.runescape.cache.graphics;
 
 import java.awt.Color;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.FileArchive;
 import com.runescape.cache.graphics.sprite.Sprite;
 import com.runescape.draw.Rasterizer2D;
@@ -436,7 +436,7 @@ public class RSFont extends Rasterizer2D {
                         if (effectString.startsWith(startImage)) {
                             try {
                                 int imageId = Integer.valueOf(effectString.substring(4));
-                                Sprite chatImageId = ClientKT.spriteCache.lookup(imageId);
+                                Sprite chatImageId = Client.spriteCache.lookup(imageId);
                                 int iconModY = chatImageId.maxHeight;
                                 /*if (transparency == 256) {
                                     chatImageId.method346(drawX, (drawY + baseCharacterHeight - iconModY));
@@ -454,7 +454,7 @@ public class RSFont extends Rasterizer2D {
                             try {
                                 int imageId = Integer.valueOf(effectString
                                         .substring(5));
-                                Sprite icon = ClientKT.spriteCache.lookup(imageId);
+                                Sprite icon = Client.spriteCache.lookup(imageId);
                                 int iconModY = icon.myHeight + icon.drawOffsetY
                                         + 1;
                                 if (transparency == 256) {
@@ -573,7 +573,7 @@ public class RSFont extends Rasterizer2D {
                                 }
                                 modifierOffset++;
                                 int iconId = Integer.valueOf(effectString.substring(4));
-                                Sprite class92 = ClientKT.spriteCache.lookup(iconId);
+                                Sprite class92 = Client.spriteCache.lookup(iconId);
                                 int iconOffsetY = class92.maxHeight;
                                 if (transparency == 256) {
                                     class92.drawSprite(drawX + xModI,
@@ -743,7 +743,7 @@ public class RSFont extends Rasterizer2D {
                         if (effectString.startsWith(startImage)) {
                             try {//<img=
                                 int iconId = Integer.valueOf(effectString.substring(4));
-                                finalWidth += ClientKT.spriteCache.lookup(iconId).maxWidth;
+                                finalWidth += Client.spriteCache.lookup(iconId).maxWidth;
                             } catch (Exception exception) {
                                 /* empty */
                             }

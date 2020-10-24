@@ -1,6 +1,6 @@
 package com.runescape.cache.def;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.FileArchive;
 import com.runescape.cache.anim.Frame;
 import com.runescape.cache.config.VariableBits;
@@ -19,7 +19,7 @@ public final class ObjectDefinition {
     public static boolean lowMemory;
     public static Buffer stream;
     public static int[] streamIndices;
-    public static ClientKT clientKTInstance;
+    public static Client clientInstance;
     public static int cacheIndex;
     public static ReferenceCache models = new ReferenceCache(30);
     public static ObjectDefinition[] cache;
@@ -303,10 +303,10 @@ public final class ObjectDefinition {
             int j = varBit.getSetting();
             int k = varBit.getLow();
             int l = varBit.getHigh();
-            int i1 = ClientKT.BIT_MASKS[l - k];
-            i = clientKTInstance.settings[j] >> k & i1;
+            int i1 = Client.BIT_MASKS[l - k];
+            i = clientInstance.settings[j] >> k & i1;
         } else if (varp != -1)
-            i = clientKTInstance.settings[varp];
+            i = clientInstance.settings[varp];
         if (i < 0 || i >= childrenIDs.length || childrenIDs[i] == -1)
             return null;
         else

@@ -217,7 +217,7 @@ public class Client extends GameApplet {
     public static boolean changeChatArea = false;
     public static boolean stackSideStones = false;
     public static boolean transparentTabArea = false;
-    public static ClientKT instance;
+    public static Client instance;
     public static int openInterfaceId;
     public static int portOffset;
     public static int anInt1089;
@@ -358,7 +358,7 @@ public class Client extends GameApplet {
     public CRC32 CRC = new CRC32();
     public int[] CRCs = new int[TOTAL_ARCHIVES];
     // Timers
-    public java.util.List<EffectTimer> effects_list = new CopyOnWriteArrayList<EffectTimer>();
+    public List<EffectTimer> effects_list = new CopyOnWriteArrayList<EffectTimer>();
     public FileArchive mediaStreamLoader;
     public boolean exitRequested = false;
     public int dropdownInversionFlag;
@@ -4557,8 +4557,6 @@ public class Client extends GameApplet {
             newFancyFont = new RSFont(true, "q8_full", titleArchive);
             gameFont = new GameFont(true, "q8_full", titleArchive);
 
-            ClientKT.Companion.getInstance().initialize();
-
             drawLogo();
             loadTitleScreen();
             FileArchive configArchive = createArchive(2, "config", "config", 30);
@@ -4713,9 +4711,9 @@ public class Client extends GameApplet {
             MessageCensor.load(wordencArchive);
             mouseDetection = new MouseDetection(this);
             startRunnable(mouseDetection, 10);
-            SceneObject.clientKTInstance = this;
-            ObjectDefinition.clientKTInstance = this;
-            NpcDefinition.clientKTInstance = this;
+            SceneObject.clientInstance = this;
+            ObjectDefinition.clientInstance = this;
+            NpcDefinition.clientInstance = this;
 
             loadPlayerData();
             //resourceProvider.writeAll();
@@ -6853,19 +6851,19 @@ public class Client extends GameApplet {
 
             switch (button) {
                 case 930:
-                    ClientKT.cameraZoom = 1200;
+                    Client.cameraZoom = 1200;
                     break;
                 case 931:
-                    ClientKT.cameraZoom = 800;
+                    Client.cameraZoom = 800;
                     break;
                 case 932:
-                    ClientKT.cameraZoom = 400;
+                    Client.cameraZoom = 400;
                     break;
                 case 933:
-                    ClientKT.cameraZoom = 200;
+                    Client.cameraZoom = 200;
                     break;
                 case 934:
-                    ClientKT.cameraZoom = 0;
+                    Client.cameraZoom = 0;
                     break;
                 case 32506:
                     Bank.bankTabShow = BankTabShow.FIRST_ITEM_IN_TAB;
@@ -7826,8 +7824,8 @@ public class Client extends GameApplet {
                                 OSRSCreationMenu.quantity = String.valueOf(amount);
                             }
                             OSRSCreationMenu.selectingAmount = false;
-                            ClientKT.instance.inputDialogState = 4;
-                            ClientKT.updateChatbox = true;
+                            Client.instance.inputDialogState = 4;
+                            Client.updateChatbox = true;
                             return;
                         }
 
@@ -10280,8 +10278,8 @@ public class Client extends GameApplet {
     }
 
     public boolean inCircle(int circleX, int circleY, int clickX, int clickY, int radius) {
-        return java.lang.Math.pow((circleX + radius - clickX), 2)
-                + java.lang.Math.pow((circleY + radius - clickY), 2) < java.lang.Math
+        return Math.pow((circleX + radius - clickX), 2)
+                + Math.pow((circleY + radius - clickY), 2) < Math
                 .pow(radius, 2);
     }
 

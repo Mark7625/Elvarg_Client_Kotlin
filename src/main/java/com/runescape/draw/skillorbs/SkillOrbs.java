@@ -1,6 +1,6 @@
 package com.runescape.draw.skillorbs;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.draw.Rasterizer2D;
 import com.runescape.util.SkillConstants;
 
@@ -28,7 +28,7 @@ public class SkillOrbs {
     public static void init() {
 
         for (int i = 0; i < SkillConstants.SKILL_COUNT; i++) {
-            orbs[i] = new SkillOrb(i, ClientKT.spriteCache.lookup(361 + i));
+            orbs[i] = new SkillOrb(i, Client.spriteCache.lookup(361 + i));
         }
     }
 
@@ -50,12 +50,12 @@ public class SkillOrbs {
         }
 
         // If the bounty hunter interface open, then orbs may need to be re-positioned
-        final boolean blockingInterfaceOpen = ClientKT.instance.openWalkableInterface == 23300;
-        boolean hpOverlay = ClientKT.instance.shouldDrawCombatBox();
+        final boolean blockingInterfaceOpen = Client.instance.openWalkableInterface == 23300;
+        boolean hpOverlay = Client.instance.shouldDrawCombatBox();
 
         // Positioning of orbs
         int y = 12;
-        int x = ClientKT.frameMode == ClientKT.ScreenMode.FIXED ? (int) (ClientKT.frameWidth / 3.1) - (totalOrbs * 30) : (ClientKT.frameWidth / 2) - (totalOrbs * 30);
+        int x = Client.frameMode == Client.ScreenMode.FIXED ? (int) (Client.frameWidth / 3.1) - (totalOrbs * 30) : (Client.frameWidth / 2) - (totalOrbs * 30);
 
         if (blockingInterfaceOpen) {
             x -= (totalOrbs * 10);
@@ -88,14 +88,14 @@ public class SkillOrbs {
                 orb.draw(x, y);
 
                 // Check if this orb is being hovered
-                if (ClientKT.instance.hover(x, y, ClientKT.spriteCache.lookup(359))) {
+                if (Client.instance.hover(x, y, Client.spriteCache.lookup(359))) {
                     hover = orb;
                 }
 
                 // Increase x, space between orbs
                 x += 62;
 
-                int xLimit = ClientKT.frameMode == ClientKT.ScreenMode.FIXED ? 300 : ClientKT.frameWidth - 203;
+                int xLimit = Client.frameMode == Client.ScreenMode.FIXED ? 300 : Client.frameWidth - 203;
                 if (x > (blockingInterfaceOpen ? xLimit : xLimit + 160)) {
                     break;
                 }

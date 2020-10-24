@@ -73,7 +73,7 @@ public class BZip2InputStream extends InputStream {
     /**
      * All memory intensive stuff. This field is initialized by initBlock().
      */
-    private BZip2InputStream.Data data;
+    private Data data;
 
     /**
      * Constructs a new BZip2InputStream which decompresses bytes read from the

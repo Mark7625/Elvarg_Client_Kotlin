@@ -1,6 +1,6 @@
 package com.runescape.util;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 
 public final class MouseDetection implements Runnable {
 
@@ -9,22 +9,22 @@ public final class MouseDetection implements Runnable {
     public final int[] coordsX;
     public boolean running;
     public int coordsIndex;
-    private ClientKT clientKTInstance;
+    private Client clientInstance;
 
-    public MouseDetection(ClientKT clientKT1) {
+    public MouseDetection(Client client1) {
         syncObject = new Object();
         coordsY = new int[500];
         running = true;
         coordsX = new int[500];
-        clientKTInstance = clientKT1;
+        clientInstance = client1;
     }
 
     public void run() {
         while (running) {
             synchronized (syncObject) {
                 if (coordsIndex < 500) {
-                    coordsX[coordsIndex] = clientKTInstance.mouseX;
-                    coordsY[coordsIndex] = clientKTInstance.mouseY;
+                    coordsX[coordsIndex] = clientInstance.mouseX;
+                    coordsY[coordsIndex] = clientInstance.mouseY;
                     coordsIndex++;
                 }
             }

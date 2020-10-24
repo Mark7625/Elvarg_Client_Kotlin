@@ -2,190 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b961a81-65be-4e74-a915-86ee0b0b9e93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Elvarg_Client_Kotlin.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/Configuration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/GameApplet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/GameFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/GameWindow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/BufferedFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/Cache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/FileArchive.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/FileOnDisk.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/FileStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/JFS32.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/Resource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/ResourceProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/anim/Animation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/anim/Frame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/anim/FrameBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/anim/Graphic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/config/VariableBits.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/config/VariablePlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/def/FloorDefinition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/def/ItemDefinition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/def/NpcDefinition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/def/ObjectDefinition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/Dropdown.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/DropdownMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/GameFont.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/IndexedImage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/RSFont.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/Slider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/sprite/Sprite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/sprite/SpriteCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/sprite/SpriteLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/Bank.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/OSRSCreationMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/SettingsWidget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/Widget.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/collection/Cacheable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/collection/Deque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/collection/HashTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/collection/Linkable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/collection/Queue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/collection/ReferenceCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/Console.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/ProducingGraphicsBuffer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/Rasterizer2D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/Rasterizer3D.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/WheelOfFortune.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/skillorbs/SkillOrb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/skillorbs/SkillOrbs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/teleports/HierarchyOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/teleports/ParentHierarchyOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/teleports/TeleportButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/teleports/TeleportChatBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/GameObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/GroundItemTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Item.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Mob.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Npc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Renderable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/model/IdentityKit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/model/Model.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/model/ModelHeader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/model/VertexNormal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/hashtable/HashTable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/hashtable/Node.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/hashtable/NodeCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/hashtable/NodeChild.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/hashtable/NodeDeque.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/hashtable/NodeList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/hashtable/NodeQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/io/PacketConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/io/PacketSender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/model/ChatCrown.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/model/ChatMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/model/DonatorRights.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/model/EffectTimer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/model/GameItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/model/PlayerRights.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/model/content/Keybinding.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/net/IsaacCipher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/net/LoginResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/AnimableObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/CollisionMap.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/MapRegion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/Projectile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/SceneCluster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/SceneGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/SceneObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/object/GroundDecoration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/object/SpawnedObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/object/WallDecoration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/object/WallObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/object/tile/ShapedTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/object/tile/SimpleTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/object/tile/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/sign/SignLink.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/sound/Envelope.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/sound/Filter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/sound/SoundConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/sound/SoundPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/sound/Synthesizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/sound/Track.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/ChatMessageCodec.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/ChunkUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/ErrorTracker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/FileUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/LoggerUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/MessageCensor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/MiscUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/MouseDetection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/NativeMemory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/SecondsTimer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/SkillConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/Stopwatch.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/StringUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/SystemUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/Time.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/Unzip.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/BZip2Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/BZip2Context.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/BZip2Decompressor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/BZip2Header.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/BZip2InputStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/BZip2OutputStream.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/Bzip2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/CRC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/Rand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/Client.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/ClientEngine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/ClientFrame.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/runescape/ClientKT.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/CacheLoader.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/CacheUnpacker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/CacheUnpacker.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/FileArchive.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/FileStore.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/defs/ConfigurationLoaders.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/defs/Definitions.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/defs/ObjectDefinition.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/defs/SpriteCache.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/defs/SpriteCache.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/impl/ConfigurationLoader.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache/impl/MediaLoader.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/collection/Cacheable.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/collection/HashTable.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/collection/Linkable.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/collection/Queue.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/collection/ReferenceCache.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/draw/ProducingGraphicsBuffer.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/draw/Rasterizer2D.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/draw/Sprite.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/runescape/draw/Sprite.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/draw/fonts/FontType.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/draw/fonts/RSFont.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/draw/screens/LoaderScreen.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/draw/screens/LoginScreen.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/draw/screens/WorldSelector.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/io/Buffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/io/Buffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/io/LoginResponse.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/io/PacketSender.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/net/BufferedConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/net/BufferedConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/net/IsaacCipher.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/utils/ClientEngine.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/utils/FileUtils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/utils/Signlink.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/utils/StringUtils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/utils/zip/BZip2DecompressionState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/bzip/BZip2DecompressionState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/runescape/utils/zip/BZip2Decompressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/bzip/BZip2Decompressor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/128x128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/64x64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/configs.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/GameApplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/GameApplet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/GameWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/ResourceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/ResourceProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/anim/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/anim/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/def/NpcDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/def/NpcDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/def/ObjectDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/def/ObjectDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/RSFont.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/RSFont.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/Slider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/Slider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/sprite/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/sprite/Sprite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/OSRSCreationMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/OSRSCreationMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/SettingsWidget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/SettingsWidget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/Widget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/cache/graphics/widget/Widget.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/draw/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/draw/skillorbs/SkillOrb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/skillorbs/SkillOrb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/draw/skillorbs/SkillOrbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/skillorbs/SkillOrbs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/draw/teleports/TeleportChatBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/draw/teleports/TeleportChatBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Mob.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Mob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Npc.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Npc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/entity/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/entity/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/io/PacketSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/io/PacketSender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/model/content/Keybinding.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/model/content/Keybinding.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/scene/MapRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/MapRegion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/scene/SceneObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/scene/SceneObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/util/MouseDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/MouseDetection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/BZip2InputStream.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/runescape/util/zip/BZip2InputStream.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -240,7 +84,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/kotlin/com/runescape/cache" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

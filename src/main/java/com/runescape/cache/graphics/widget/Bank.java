@@ -1,6 +1,6 @@
 package com.runescape.cache.graphics.widget;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.def.ItemDefinition;
 import com.runescape.cache.graphics.sprite.Sprite;
 
@@ -39,13 +39,13 @@ public class Bank {
 
                 // If it's currently being viewed, change its sprite
                 if (tab == currentBankTab || tab == 0 && searchingBank()) {
-                    button.disabledSprite = ClientKT.spriteCache.lookup(205);
+                    button.disabledSprite = Client.spriteCache.lookup(205);
                 } else {
-                    button.disabledSprite = ClientKT.spriteCache.lookup(206);
+                    button.disabledSprite = Client.spriteCache.lookup(206);
                 }
 
                 // We have a tab! Draw it!
-                ClientKT.instance.settings[1000 + tab] = 0;
+                Client.instance.settings[1000 + tab] = 0;
                 button.hidden = false;
 
                 // Draw its options
@@ -58,13 +58,13 @@ public class Bank {
 
                     switch (bankTabShow) {
                         case DIGIT:
-                            sprite = ClientKT.spriteCache.lookup(219 + tab);
+                            sprite = Client.spriteCache.lookup(219 + tab);
                             break;
                         case FIRST_ITEM_IN_TAB:
                             sprite = ItemDefinition.getSprite(first_item, item_amount, 0);
                             break;
                         case ROMAN_NUMERAL:
-                            sprite = ClientKT.spriteCache.lookup(210 + tab);
+                            sprite = Client.spriteCache.lookup(210 + tab);
                             break;
                     }
 
@@ -78,7 +78,7 @@ public class Bank {
 
                 // Empty tab
                 // We don't have a tab. Remove the button
-                ClientKT.instance.settings[1000 + tab] = 1;
+                Client.instance.settings[1000 + tab] = 1;
                 button.hidden = true;
 
                 // Add the draw plus sprite
@@ -94,7 +94,7 @@ public class Bank {
         if (drawPlus) {
 
             // Show tab
-            ClientKT.instance.settings[1000 + final_loop] = 0;
+            Client.instance.settings[1000 + final_loop] = 0;
 
             // Show option
             Widget.interfaceCache[id_start + (final_loop * 4)].actions = new String[]{"Create Tab", null, null, null,
@@ -102,7 +102,7 @@ public class Bank {
             Widget.interfaceCache[id_start + (final_loop * 4)].hidden = false;
 
             // Draw plus icon
-            ClientKT.spriteCache.draw(210, x, y + 40);
+            Client.spriteCache.draw(210, x, y + 40);
         }
 
         // Now let's draw the actual bank interface.

@@ -1,6 +1,6 @@
 package com.runescape.scene;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.def.FloorDefinition;
 import com.runescape.cache.def.ObjectDefinition;
 import com.runescape.draw.Rasterizer3D;
@@ -769,8 +769,8 @@ public final class MapRegion {
         int northEast = tileHeights[z][editX2][editY2];
         int north = tileHeights[z][editX][editY2];
         int mean = center + east + northEast + north >> 2;
-        int mX = ClientKT.instance.currentRegionX - 6;
-        int mY = ClientKT.instance.currentRegionY - 6;
+        int mX = Client.instance.currentRegionX - 6;
+        int mY = Client.instance.currentRegionY - 6;
         int actualX = mX * 8 + x;
         int actualY = mY * 8 + y;
         int actualH = z;

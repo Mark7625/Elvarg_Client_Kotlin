@@ -14,7 +14,7 @@ import java.awt.image.RGBImageFilter;
 
 import javax.swing.ImageIcon;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.FileArchive;
 import com.runescape.cache.graphics.IndexedImage;
 import com.runescape.draw.Rasterizer2D;
@@ -229,8 +229,8 @@ public final class Sprite extends Rasterizer2D {
             return;
         }
         this.drawSprite(x, y);
-        if (ClientKT.instance.mouseX >= offsetX + x && ClientKT.instance.mouseX <= offsetX + x + this.myWidth
-                && ClientKT.instance.mouseY >= offsetY + y && ClientKT.instance.mouseY <= offsetY + y + this.myHeight) {
+        if (Client.instance.mouseX >= offsetX + x && Client.instance.mouseX <= offsetX + x + this.myWidth
+                && Client.instance.mouseY >= offsetY + y && Client.instance.mouseY <= offsetY + y + this.myHeight) {
             hover.drawSprite(x, y);
         }
     }

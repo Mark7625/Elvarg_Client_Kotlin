@@ -1,6 +1,6 @@
 package com.runescape.entity;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.anim.Animation;
 import com.runescape.cache.anim.Frame;
 import com.runescape.cache.anim.Graphic;
@@ -96,9 +96,9 @@ public final class Player extends Mob {
         }
 
         if (playerModel != null) {
-            if (ClientKT.tick >= objectModelStop)
+            if (Client.tick >= objectModelStop)
                 playerModel = null;
-            if (ClientKT.tick >= objectModelStart && ClientKT.tick < objectModelStop) {
+            if (Client.tick >= objectModelStart && Client.tick < objectModelStop) {
                 Model model_1 = playerModel;
                 model_1.translate(objectXPos - super.x, objectCenterHeight - anInt1709, objectYPos - super.y);
                 if (super.nextStepOrientation == 512) {
@@ -170,7 +170,7 @@ public final class Player extends Mob {
 
         for (int part = 0; part < 5; part++) {
             int color = buffer.readUnsignedByte();
-            if (color < 0 || color >= ClientKT.PLAYER_BODY_RECOLOURS[part].length) {
+            if (color < 0 || color >= Client.PLAYER_BODY_RECOLOURS[part].length) {
                 color = 0;
             }
             appearanceColors[part] = color;
@@ -327,10 +327,10 @@ public final class Player extends Mob {
             model_1 = new Model(j2, aclass30_sub2_sub4_sub6s);
             for (int j3 = 0; j3 < 5; j3++)
                 if (appearanceColors[j3] != 0) {
-                    model_1.recolor(ClientKT.PLAYER_BODY_RECOLOURS[j3][0],
-                            ClientKT.PLAYER_BODY_RECOLOURS[j3][appearanceColors[j3]]);
+                    model_1.recolor(Client.PLAYER_BODY_RECOLOURS[j3][0],
+                            Client.PLAYER_BODY_RECOLOURS[j3][appearanceColors[j3]]);
                     if (j3 == 1)
-                        model_1.recolor(ClientKT.anIntArray1204[0], ClientKT.anIntArray1204[appearanceColors[j3]]);
+                        model_1.recolor(Client.anIntArray1204[0], Client.anIntArray1204[appearanceColors[j3]]);
                 }
 
             model_1.skin();
@@ -414,10 +414,10 @@ public final class Player extends Mob {
 
         for (int index = 0; index < 5; index++) {
             if (appearanceColors[index] != 0) {
-                headModel.recolor(ClientKT.PLAYER_BODY_RECOLOURS[index][0],
-                        ClientKT.PLAYER_BODY_RECOLOURS[index][appearanceColors[index]]);
+                headModel.recolor(Client.PLAYER_BODY_RECOLOURS[index][0],
+                        Client.PLAYER_BODY_RECOLOURS[index][appearanceColors[index]]);
                 if (index == 1) {
-                    headModel.recolor(ClientKT.anIntArray1204[0], ClientKT.anIntArray1204[appearanceColors[index]]);
+                    headModel.recolor(Client.anIntArray1204[0], Client.anIntArray1204[appearanceColors[index]]);
                 }
             }
         }

@@ -1,6 +1,6 @@
 package com.runescape.scene;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.anim.Animation;
 import com.runescape.cache.config.VariableBits;
 import com.runescape.cache.def.ObjectDefinition;
@@ -9,7 +9,7 @@ import com.runescape.entity.model.Model;
 
 public final class SceneObject extends Renderable {
 
-    public static ClientKT clientKTInstance;
+    public static Client clientInstance;
     private final int[] anIntArray1600;
     private final int anInt1601;
     private final int anInt1602;
@@ -35,7 +35,7 @@ public final class SceneObject extends Renderable {
         if (l1 != -1) {
             aAnimation_1607 = Animation.animations[l1];
             anInt1599 = 0;
-            anInt1608 = ClientKT.tick;
+            anInt1608 = Client.tick;
             if (flag && aAnimation_1607.loopOffset != -1) {
                 anInt1599 = (int) (Math.random() * (double) aAnimation_1607.frameCount);
                 anInt1608 -= (int) (Math.random() * (double) aAnimation_1607.duration(anInt1599));
@@ -55,12 +55,12 @@ public final class SceneObject extends Renderable {
                 int k = varBit.getSetting();
                 int l = varBit.getLow();
                 int i1 = varBit.getHigh();
-                int j1 = ClientKT.BIT_MASKS[i1 - l];
-                i = clientKTInstance.settings[k] >> l & j1;
+                int j1 = Client.BIT_MASKS[i1 - l];
+                i = clientInstance.settings[k] >> l & j1;
             } catch (Exception ex) {
             }
-        } else if (anInt1602 != -1 && anInt1602 < clientKTInstance.settings.length) {
-            i = clientKTInstance.settings[anInt1602];
+        } else if (anInt1602 != -1 && anInt1602 < clientInstance.settings.length) {
+            i = clientInstance.settings[anInt1602];
         }
         if (i < 0 || i >= anIntArray1600.length || anIntArray1600[i] == -1) {
             return null;
@@ -72,7 +72,7 @@ public final class SceneObject extends Renderable {
     public Model getRotatedModel() {
         int j = -1;
         if (aAnimation_1607 != null) {
-            int k = ClientKT.tick - anInt1608;
+            int k = Client.tick - anInt1608;
             if (k > 100 && aAnimation_1607.loopOffset > 0) {
                 k = 100;
             }
@@ -87,7 +87,7 @@ public final class SceneObject extends Renderable {
                 aAnimation_1607 = null;
                 break;
             }
-            anInt1608 = ClientKT.tick - k;
+            anInt1608 = Client.tick - k;
             if (aAnimation_1607 != null) {
                 j = aAnimation_1607.primaryFrames[anInt1599];
             }

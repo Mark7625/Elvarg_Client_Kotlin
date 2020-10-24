@@ -1,12 +1,12 @@
 package com.runescape.draw;
 
-import static com.runescape.ClientKT.tick;
+import static com.runescape.Client.tick;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.Configuration;
 import com.runescape.cache.FileArchive;
 import com.runescape.cache.def.ItemDefinition;
@@ -30,8 +30,8 @@ public class Console {
 		consoleMessages[0] = "This is the developer console. To close, press the ` key on your keyboard.";
 	}
 
-	public static ClientKT client() {
-		return ClientKT.instance;
+	public static Client client() {
+		return Client.instance;
 	}
 
 	public void drawConsole() {
@@ -59,7 +59,7 @@ public class Console {
 
 	public void printMessage(String s, int i) {
 		if (client().backDialogueId == -1) {
-			ClientKT.updateChatbox = true;
+			Client.updateChatbox = true;
 		}
 		for (int j = 16; j > 0; j--) {
 			consoleMessages[j] = consoleMessages[j - 1];
@@ -142,7 +142,7 @@ public class Console {
 				int id1 = Integer.parseInt(args[1]);
 				int id2 = Integer.parseInt(args[2]);
 				client().fullscreenInterfaceID = id1;
-				ClientKT.openInterfaceId = id2;
+				Client.openInterfaceId = id2;
 				printMessage("Opened interface " + id1 + " " + id2 + ".", 1);
 			} catch (Exception e) {
 				printMessage("Failed to open interface.", 1);
@@ -159,12 +159,12 @@ public class Console {
             Widget.load(interfaces, fonts, graphics, new RSFont[]{client().newSmallFont, client().newRegularFont, client().newBoldFont, client().newFancyFont});
 			break;
 		case "grid":
-			ClientKT.enableGridOverlay = !ClientKT.enableGridOverlay;
+			Client.enableGridOverlay = !Client.enableGridOverlay;
 			break;
 		default:
 			/** Server commands **/
-			if (ClientKT.loggedIn) {
-				ClientKT.instance.packetSender.sendCommand(cmd);
+			if (Client.loggedIn) {
+				Client.instance.packetSender.sendCommand(cmd);
 			}
 			break;
 		}

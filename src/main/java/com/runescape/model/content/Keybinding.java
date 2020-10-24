@@ -1,6 +1,6 @@
 package com.runescape.model.content;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.Configuration;
 import com.runescape.cache.graphics.widget.Widget;
 
@@ -64,13 +64,13 @@ public class Keybinding {
     public static void bind(int index, int key) {
         checkDuplicates(key, index);
         KEYBINDINGS[index] = KEYS[key];
-        ClientKT.instance.savePlayerData();
+        Client.instance.savePlayerData();
     }
 
     public static boolean isBound(int key) {
         for (int i = 0; i < KEYBINDINGS.length; i++) {
             if (key == KEYBINDINGS[i]) {
-                ClientKT.setTab(i);
+                Client.setTab(i);
                 return true;
             }
         }

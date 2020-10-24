@@ -1,9 +1,10 @@
 package com.runescape.cache.graphics.widget;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.Configuration;
-import com.runescape.ClientKT.ScreenMode;
+import com.runescape.Client.ScreenMode;
 import com.runescape.cache.graphics.Dropdown;
+import com.runescape.cache.graphics.GameFont;
 import com.runescape.cache.graphics.Slider;
 import com.runescape.model.content.Keybinding;
 
@@ -232,16 +233,16 @@ public class SettingsWidget extends Widget {
                 switchSettings(button);
                 break;
             case FIXED_MODE:
-                ClientKT.instance.frameMode(ClientKT.ScreenMode.FIXED);
+                Client.instance.frameMode(Client.ScreenMode.FIXED);
                 break;
             case RESIZABLE_MODE:
-                ClientKT.instance.frameMode(ClientKT.ScreenMode.RESIZABLE);
+                Client.instance.frameMode(Client.ScreenMode.RESIZABLE);
                 break;
             case SHIFT_CLICK_DROP:
                 Configuration.enableShiftClickDrop = !Configuration.enableShiftClickDrop;
                 break;
             case 42521:
-                ClientKT.cameraZoom = 600;
+                Client.cameraZoom = 600;
                 Slider slider = Widget.interfaceCache[ZOOM_SLIDER].slider;
                 slider.setValue(600);
                 break;
@@ -254,16 +255,16 @@ public class SettingsWidget extends Widget {
     public static void advancedSettings(int button) {
         switch (button) {
             case TRANSPARENT_SIDE_PANEL:
-                ClientKT.transparentTabArea = !ClientKT.transparentTabArea;
+                Client.transparentTabArea = !Client.transparentTabArea;
                 break;
             case TRANSPARENT_CHATBOX:
-                ClientKT.changeChatArea = !ClientKT.changeChatArea;
+                Client.changeChatArea = !Client.changeChatArea;
                 break;
             case SIDE_STONES_ARRANGEMENT:
-            	if (ClientKT.frameMode == ScreenMode.FIXED) {
+            	if (Client.frameMode == ScreenMode.FIXED) {
             		return;
             	}
-            	ClientKT.stackSideStones = !ClientKT.stackSideStones;
+            	Client.stackSideStones = !Client.stackSideStones;
                 break;
             case ROOF_REMOVAL:
                 Configuration.enableRoofs = !Configuration.enableRoofs;
@@ -295,7 +296,7 @@ public class SettingsWidget extends Widget {
                 Configuration.enableSpecOrb = !Configuration.enableSpecOrb;
                 break;
         }
-        ClientKT.instance.savePlayerData();
+        Client.instance.savePlayerData();
     }
 
     public static void switchSettings(int button) {
@@ -307,7 +308,7 @@ public class SettingsWidget extends Widget {
     public static void updateSettings() {
 		/* Settings */
         Widget.interfaceCache[ACCEPT_AID].active = true;
-        Widget.interfaceCache[RUN].active = ClientKT.instance.settings[152] == 1;
+        Widget.interfaceCache[RUN].active = Client.instance.settings[152] == 1;
         Widget.interfaceCache[CHAT_EFFECTS].active = true;
         Widget.interfaceCache[SPLIT_PRIVATE_CHAT].active = false;
         Widget.interfaceCache[MOUSE_BUTTONS].active = true;
@@ -316,15 +317,15 @@ public class SettingsWidget extends Widget {
         Widget.interfaceCache[PLAYER_ATTACK_DROPDOWN].dropdown.setSelected(Widget.interfaceCache[42554].dropdown.getOptions()[Configuration.playerAttackOptionPriority]);
         Widget.interfaceCache[NPC_ATTACK_DROPDOWN].dropdown.setSelected(Widget.interfaceCache[42556].dropdown.getOptions()[Configuration.npcAttackOptionPriority]);
 
-        Widget.interfaceCache[ZOOM_SLIDER].slider.setValue(ClientKT.cameraZoom);
-        Widget.interfaceCache[BRIGHTNESS_SLIDER].slider.setValue(ClientKT.brightnessState);
+        Widget.interfaceCache[ZOOM_SLIDER].slider.setValue(Client.cameraZoom);
+        Widget.interfaceCache[BRIGHTNESS_SLIDER].slider.setValue(Client.brightnessState);
         //Widget.interfaceCache[MUSIC_SLIDER].slider.setValue(Client.cameraZoom); TODO
         //Widget.interfaceCache[SOUND_SLIDER].slider.setValue(Client.cameraZoom);
 
 		/* Advanced settings*/
-        Widget.interfaceCache[TRANSPARENT_SIDE_PANEL].active = ClientKT.transparentTabArea;
-        Widget.interfaceCache[TRANSPARENT_CHATBOX].active = ClientKT.changeChatArea;
-        Widget.interfaceCache[SIDE_STONES_ARRANGEMENT].active = ClientKT.stackSideStones;
+        Widget.interfaceCache[TRANSPARENT_SIDE_PANEL].active = Client.transparentTabArea;
+        Widget.interfaceCache[TRANSPARENT_CHATBOX].active = Client.changeChatArea;
+        Widget.interfaceCache[SIDE_STONES_ARRANGEMENT].active = Client.stackSideStones;
         Widget.interfaceCache[ROOF_REMOVAL].active = Configuration.enableRoofs;
         Widget.interfaceCache[ORBS].active = Configuration.enableOrbs;
         Widget.interfaceCache[SPEC_ORB].active = Configuration.enableSpecOrb;

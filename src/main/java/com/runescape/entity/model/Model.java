@@ -1,6 +1,6 @@
 package com.runescape.entity.model;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.anim.Frame;
 import com.runescape.cache.anim.FrameBase;
 import com.runescape.draw.Rasterizer2D;
@@ -642,7 +642,7 @@ public class Model extends Renderable {
 
         ModelHeader class21 = modelHeader[file];
         if (class21 == null) {
-            ClientKT.instance.resourceProvider.provide(0, file);
+            Client.instance.resourceProvider.provide(0, file);
             return null;
         } else {
             return new Model(file);
@@ -655,7 +655,7 @@ public class Model extends Renderable {
 
         ModelHeader class21 = modelHeader[file];
         if (class21 == null) {
-            ClientKT.instance.resourceProvider.provide(0, file);
+            Client.instance.resourceProvider.provide(0, file);
             return false;
         } else {
             return true;

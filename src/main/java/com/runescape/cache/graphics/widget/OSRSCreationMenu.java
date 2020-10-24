@@ -3,8 +3,8 @@ package com.runescape.cache.graphics.widget;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.runescape.ClientKT;
-import com.runescape.ClientKT.ScreenMode;
+import com.runescape.Client;
+import com.runescape.Client.ScreenMode;
 import com.runescape.cache.def.ItemDefinition;
 import com.runescape.cache.graphics.GameFont;
 import com.runescape.cache.graphics.sprite.Sprite;
@@ -28,14 +28,14 @@ public class OSRSCreationMenu {
     }
 
     public static void draw(int x, int y) {
-        boolean fixed = ClientKT.frameMode == ScreenMode.FIXED;
-        int mouseX = ClientKT.instance.mouseX;
-        int mouseY = ClientKT.instance.mouseY - y - (fixed ? 338 : 0);
-        boolean click = ClientKT.instance.clickMode3 == 1;
+        boolean fixed = Client.frameMode == ScreenMode.FIXED;
+        int mouseX = Client.instance.mouseX;
+        int mouseY = Client.instance.mouseY - y - (fixed ? 338 : 0);
+        boolean click = Client.instance.clickMode3 == 1;
 
         // Titles
-        ClientKT.instance.boldText.drawCenteredText(Widget.interfaceCache[31104].defaultText, x + 145, y + 30, 0x403020, false);
-        ClientKT.instance.smallText.drawCenteredText("Choose a quantity, then click an item to begin.", x + 143, y + 45, 0x605048, false);
+        Client.instance.boldText.drawCenteredText(Widget.interfaceCache[31104].defaultText, x + 145, y + 30, 0x403020, false);
+        Client.instance.smallText.drawCenteredText("Choose a quantity, then click an item to begin.", x + 143, y + 45, 0x605048, false);
 
         // Amount buttons
         for (int i = 0, amountButtonX = 310; i < QUANTITIES.length; i++, amountButtonX += 40) {
@@ -44,10 +44,10 @@ public class OSRSCreationMenu {
                 // Select X
                 if (i == 3) {
                     selectingAmount = true;
-                    ClientKT.instance.messagePromptRaised = false;
-                    ClientKT.instance.inputDialogState = 1;
-                    ClientKT.instance.amountOrNameInput = "";
-                    ClientKT.updateChatbox = true;
+                    Client.instance.messagePromptRaised = false;
+                    Client.instance.inputDialogState = 1;
+                    Client.instance.amountOrNameInput = "";
+                    Client.updateChatbox = true;
                 } else {
                     quantity = QUANTITIES[i];
                 }
@@ -67,11 +67,11 @@ public class OSRSCreationMenu {
             }
             int spriteId = (hover || selected) ? 634 : 633;
             int textColour = selected ? 0xFFFFFF : 0x403020;
-            ClientKT.spriteCache.draw(spriteId, amountButtonX, y + 15);
+            Client.spriteCache.draw(spriteId, amountButtonX, y + 15);
             if (i == 3 && selected) {
-                ClientKT.instance.smallText.drawCenteredText(text, x + QUANTITY_TEXT_X[i], y + 35, textColour, false);
+                Client.instance.smallText.drawCenteredText(text, x + QUANTITY_TEXT_X[i], y + 35, textColour, false);
             } else {
-                ClientKT.instance.gameFont.drawCenteredText(text, x + QUANTITY_TEXT_X[i], y + 35, textColour, false);
+                Client.instance.gameFont.drawCenteredText(text, x + QUANTITY_TEXT_X[i], y + 35, textColour, false);   
             }
         }
 
@@ -80,7 +80,7 @@ public class OSRSCreationMenu {
         if (itemAmount > 4) {
             itemAmount = 4;
         } else if (itemAmount <= 0) {
-            ClientKT.instance.inputDialogState = 0;
+            Client.instance.inputDialogState = 0;
             return;
         }
         int itemX = BOX_X[itemAmount - 1];
@@ -94,7 +94,7 @@ public class OSRSCreationMenu {
             }
 
             int spriteId = hover ? 632 : 631;
-            ClientKT.spriteCache.draw(spriteId, x + itemX, y + 52);
+            Client.spriteCache.draw(spriteId, x + itemX, y + 52);
 
             int itemId = items.get(i);
             ItemDefinition def = ItemDefinition.lookup(itemId);
@@ -104,7 +104,7 @@ public class OSRSCreationMenu {
                 zoom = (def.modelZoom / 3) + 40;
                 itemName = "(" + (i + 1) + ") " + def.name;
                 if (hover) {
-                    GameFont font = ClientKT.instance.gameFont;
+                    GameFont font = Client.instance.gameFont;
                     int textWidth = font.getTextWidth(itemName);
                     int hoverX = x + itemX + (boxWidth / 2);
                     int hoverY = y + 132;          
@@ -138,8 +138,8 @@ public class OSRSCreationMenu {
             e.printStackTrace();
             amount = 1;
         }
-        ClientKT.instance.packetSender.sendCreationMenuAction(itemId, amount);
-        ClientKT.instance.inputDialogState = 0;
+        Client.instance.packetSender.sendCreationMenuAction(itemId, amount);
+        Client.instance.inputDialogState = 0;
         OSRSCreationMenu.items.clear();
     }
 

@@ -1,6 +1,6 @@
 package com.runescape.draw.skillorbs;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.graphics.sprite.Sprite;
 import com.runescape.draw.Rasterizer2D;
 import com.runescape.util.SecondsTimer;
@@ -184,8 +184,8 @@ public class SkillOrb {
 
         final int percentProgress = percentage();
         NumberFormat nf = NumberFormat.getInstance();
-        int mouse_Y = ClientKT.instance.mouseX;
-        int mouseY = ClientKT.instance.mouseY;
+        int mouse_Y = Client.instance.mouseX;
+        int mouseY = Client.instance.mouseY;
 
 		/* Draw box */
         Rasterizer2D.drawTransparentBox(mouse_Y + 1, mouseY + 6, 122, 83, 0x504a41, 180);
@@ -193,45 +193,45 @@ public class SkillOrb {
 
 		/* Draw stat information */
         String skillName = SkillConstants.SKILL_NAMES_ORDER[skill];
-        ClientKT.instance.newSmallFont.drawCenteredString(skillName, mouse_Y + 122 / 2, mouseY + 20, 16777215, 1);
+        Client.instance.newSmallFont.drawCenteredString(skillName, mouse_Y + 122 / 2, mouseY + 20, 16777215, 1);
 
         String[] labels = new String[]{"Level:", "Exp:", "Exp left:"};
-        String[] info = new String[]{Integer.toString(ClientKT.instance.maximumLevels[skill]), nf.format(ClientKT.instance.currentExp[skill]), nf.format(remainderExp())};
+        String[] info = new String[]{Integer.toString(Client.instance.maximumLevels[skill]), nf.format(Client.instance.currentExp[skill]), nf.format(remainderExp())};
         int y = 35;
 
         for (int i = 0; i < 3; i++, y += 15) {
-            ClientKT.instance.newSmallFont.drawBasicString(labels[i], mouse_Y + 5, mouseY + y, 16777215, 1);
-            ClientKT.instance.newSmallFont.drawRightAlignedString(info[i], mouse_Y + 117, mouseY + y, 0x00ff00, 1);
+            Client.instance.newSmallFont.drawBasicString(labels[i], mouse_Y + 5, mouseY + y, 16777215, 1);
+            Client.instance.newSmallFont.drawRightAlignedString(info[i], mouse_Y + 117, mouseY + y, 0x00ff00, 1);
         }
 
 		/* Draw progress bar */
         Rasterizer2D.drawTransparentBox(mouse_Y + 3, mouseY + 70, 118, 14, 0x2c2720, 180);
-        Rasterizer2D.drawBox(mouse_Y + 3, mouseY + 70, (int) ((percentProgress / 100.0) * 118), 14, ClientKT.getProgressColor(percentProgress));
+        Rasterizer2D.drawBox(mouse_Y + 3, mouseY + 70, (int) ((percentProgress / 100.0) * 118), 14, Client.getProgressColor(percentProgress));
 
-        ClientKT.instance.newSmallFont.drawCenteredString(percentProgress + "% ", mouse_Y + 118 / 2 + 10, mouseY + 82, 0xFFFFFF, 1);
+        Client.instance.newSmallFont.drawCenteredString(percentProgress + "% ", mouse_Y + 118 / 2 + 10, mouseY + 82, 0xFFFFFF, 1);
     }
 
     private int currentLevel() {
-        return ClientKT.instance.maximumLevels[skill];
+        return Client.instance.maximumLevels[skill];
     }
 
     private int startExp() {
-        return ClientKT.getXPForLevel(currentLevel());
+        return Client.getXPForLevel(currentLevel());
     }
 
     private int requiredExp() {
-        return ClientKT.getXPForLevel(currentLevel() + 1);
+        return Client.getXPForLevel(currentLevel() + 1);
     }
 
     private int obtainedExp() {
-        return ClientKT.instance.currentExp[skill] - startExp();
+        return Client.instance.currentExp[skill] - startExp();
     }
 
     private int remainderExp() {
         if (currentLevel() < 99) {
             return requiredExp() - (startExp() + obtainedExp());
         } else {
-            return 200_000_000 - ClientKT.instance.currentExp[skill];
+            return 200_000_000 - Client.instance.currentExp[skill];
         }
     }
 
@@ -242,7 +242,7 @@ public class SkillOrb {
             if (currentLevel() < 99) {
                 percent = (int) (((double) obtainedExp() / (double) (requiredExp() - startExp())) * 100);
             } else {
-                percent = (int) (((double) ClientKT.instance.currentExp[skill] / 200_000_000) * 100);
+                percent = (int) (((double) Client.instance.currentExp[skill] / 200_000_000) * 100);
             }
             // Max percent progress is 100
             if (percent > 100) {

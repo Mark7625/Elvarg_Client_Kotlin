@@ -1,6 +1,6 @@
 package com.runescape.entity;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.anim.Animation;
 import com.runescape.cache.anim.Graphic;
 
@@ -139,7 +139,7 @@ public class Mob extends Renderable {
     }
 
     public void nextPreForcedStep() {
-        int remaining = startForceMovement - ClientKT.tick;
+        int remaining = startForceMovement - Client.tick;
         int tempX = initialX * 128 + size * 64;
         int tempY = initialY * 128 + size * 64;
         x += (tempX - x) / remaining;
@@ -165,13 +165,13 @@ public class Mob extends Renderable {
     }
 
     public void nextForcedMovementStep() {
-        if (endForceMovement == ClientKT.tick || emoteAnimation == -1
+        if (endForceMovement == Client.tick || emoteAnimation == -1
                 || animationDelay != 0
                 || emoteTimeRemaining
                 + 1 > Animation.animations[emoteAnimation]
                 .duration(displayedEmoteFrames)) {
             int remaining = endForceMovement - startForceMovement;
-            int elapsed = ClientKT.tick - startForceMovement;
+            int elapsed = Client.tick - startForceMovement;
             int initialX = this.initialX * 128 + size * 64;
             int initialY = this.initialY * 128 + size * 64;
             int endX = destinationX * 128 + size * 64;
@@ -395,7 +395,7 @@ public class Mob extends Renderable {
                     displayedMovementFrames = 0;
                 }
             }
-            if (graphic != -1 && ClientKT.tick >= graphicDelay) {
+            if (graphic != -1 && Client.tick >= graphicDelay) {
                 if (currentAnimation < 0)
                     currentAnimation = 0;
                 Animation animation_1 = Graphic.cache[graphic].animationSequence;
@@ -410,7 +410,7 @@ public class Mob extends Renderable {
             }
             if (emoteAnimation != -1 && animationDelay <= 1) {
                 Animation animation_2 = Animation.animations[emoteAnimation];
-                if (animation_2.animatingPrecedence == 1 && anInt1542 > 0 && startForceMovement <= ClientKT.tick && endForceMovement < ClientKT.tick) {
+                if (animation_2.animatingPrecedence == 1 && anInt1542 > 0 && startForceMovement <= Client.tick && endForceMovement < Client.tick) {
                     animationDelay = 1;
                     return;
                 }

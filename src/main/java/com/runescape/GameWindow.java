@@ -7,6 +7,9 @@ import com.runescape.util.SystemUtils;
 import java.applet.Applet;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * I fear the day technology will surpass our human interaction. The world will have a generation of idiots. -Albert Einstein
@@ -82,11 +85,11 @@ public class GameWindow extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        final ClientKT clientKT = new ClientKT();
+        final Client client = new Client();
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new GameWindow(clientKT);
+                new GameWindow(client);
             }
         });
     }

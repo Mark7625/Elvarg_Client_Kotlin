@@ -1,6 +1,6 @@
 package com.runescape.cache.graphics.widget;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.Configuration;
 import com.runescape.cache.FileArchive;
 import com.runescape.cache.anim.Frame;
@@ -535,7 +535,7 @@ public class Widget {
 					if (interfaceCache[buttonId].parent == 12855 || buttonId == 12856) {
 						spriteId = button.ancientSpriteId;
 					}
-					interfaceCache[buttonId].enabledSprite = interfaceCache[buttonId].disabledSprite = ClientKT.spriteCache.lookup(spriteId);
+					interfaceCache[buttonId].enabledSprite = interfaceCache[buttonId].disabledSprite = Client.spriteCache.lookup(spriteId);
 				} catch (Exception e) {
 					System.out.println("Failed updating: " + buttonId);
 				}
@@ -1009,8 +1009,8 @@ public class Widget {
 	}
 
 	public static int stoneOffset(int spriteId, boolean xOffset) {
-		Sprite stone = ClientKT.spriteCache.lookup(445);
-		Sprite icon = ClientKT.spriteCache.lookup(spriteId);
+		Sprite stone = Client.spriteCache.lookup(445);
+		Sprite icon = Client.spriteCache.lookup(spriteId);
 
 		if (xOffset) {
 			return (stone.myWidth / 2) - icon.myWidth / 2;
@@ -1037,8 +1037,8 @@ public class Widget {
 		p.tooltip = tooltip;
 		p.defaultText = tooltip;
 		p.hoverType = hoverOver;
-		p.disabledSprite = ClientKT.spriteCache.lookup(sprite1);
-		p.enabledSprite = ClientKT.spriteCache.lookup(sprite2);
+		p.disabledSprite = Client.spriteCache.lookup(sprite1);
+		p.enabledSprite = Client.spriteCache.lookup(sprite2);
 	}
 
 	public static void addButton(int i, int parent, int w, int h, int sprite1, int sprite2, int hoverOver,
@@ -1052,8 +1052,8 @@ public class Widget {
 		p.tooltip = tooltip;
 		p.defaultText = tooltip;
 		p.hoverType = hoverOver;
-		p.disabledSprite = ClientKT.spriteCache.lookup(sprite1);
-		p.enabledSprite = ClientKT.spriteCache.lookup(sprite2);
+		p.disabledSprite = Client.spriteCache.lookup(sprite1);
+		p.enabledSprite = Client.spriteCache.lookup(sprite2);
 	}
 
 	public static void addButton(int i, int parent, int w, int h, Sprite sprite1, Sprite sprite2, int hoverOver,
@@ -1183,7 +1183,7 @@ public class Widget {
 		p.tooltip = tooltip;
 		p.defaultText = tooltip;
 		p.hoverType = 52;
-		p.enabledSprite = ClientKT.spriteCache.lookup(glowSprite);
+		p.enabledSprite = Client.spriteCache.lookup(glowSprite);
 		p.spriteXOffset = glowX;
 		p.spriteYOffset = glowY;
 
@@ -1205,8 +1205,8 @@ public class Widget {
 		p.valueIndexArray[0][2] = 0;
 		p.tooltip = tooltip;
 		p.defaultText = tooltip;
-		p.enabledSprite = ClientKT.spriteCache.lookup(disabledSprite); // imageLoader(disabledSprite, "s");
-		p.disabledSprite = ClientKT.spriteCache.lookup(enabledSprite); // imageLoader(enabledSprite, "s");
+		p.enabledSprite = Client.spriteCache.lookup(disabledSprite); // imageLoader(disabledSprite, "s");
+		p.disabledSprite = Client.spriteCache.lookup(enabledSprite); // imageLoader(enabledSprite, "s");
 		p.hoverType = hover;
 	}
 
@@ -1758,8 +1758,8 @@ public class Widget {
 		widget.atActionType = 0;
 		widget.contentType = 0;
 		widget.hoverType = 52;
-		widget.enabledSprite = ClientKT.spriteCache.lookup(spriteId);
-		widget.disabledSprite = ClientKT.spriteCache.lookup(spriteId);
+		widget.enabledSprite = Client.spriteCache.lookup(spriteId);
+		widget.disabledSprite = Client.spriteCache.lookup(spriteId);
 		widget.drawsTransparent = true;
 		widget.opacity = 64;
 		widget.width = 512;
@@ -1785,8 +1785,8 @@ public class Widget {
 		widget.valueIndexArray[0][0] = 5;
 		widget.valueIndexArray[0][1] = config;
 		widget.valueIndexArray[0][2] = 0;
-		widget.enabledSprite = spriteId < 0 ? null : ClientKT.spriteCache.lookup(spriteId);
-		widget.disabledSprite = spriteId2 < 0 ? null : ClientKT.spriteCache.lookup(spriteId2);
+		widget.enabledSprite = spriteId < 0 ? null : Client.spriteCache.lookup(spriteId);
+		widget.disabledSprite = spriteId2 < 0 ? null : Client.spriteCache.lookup(spriteId2);
 	}
 
 	public static void addSprite(int id, int spriteId) {
@@ -1800,8 +1800,8 @@ public class Widget {
 		rsint.hoverType = 0;
 
 		if (spriteId != -1) {
-			rsint.disabledSprite = ClientKT.spriteCache.lookup(spriteId);
-			rsint.enabledSprite = ClientKT.spriteCache.lookup(spriteId);
+			rsint.disabledSprite = Client.spriteCache.lookup(spriteId);
+			rsint.enabledSprite = Client.spriteCache.lookup(spriteId);
 		}
 
 		rsint.width = 0;
@@ -2000,8 +2000,8 @@ public class Widget {
 		tab.contentType = 0;
 		tab.opacity = (byte) 0;
 		tab.hoverType = 52;
-		tab.disabledSprite = ClientKT.spriteCache.lookup(sid);// imageLoader(sid, spriteName);
-		tab.enabledSprite = ClientKT.spriteCache.lookup(sid);// imageLoader(sid, spriteName);
+		tab.disabledSprite = Client.spriteCache.lookup(sid);// imageLoader(sid, spriteName);
+		tab.enabledSprite = Client.spriteCache.lookup(sid);// imageLoader(sid, spriteName);
 		tab.width = tab.disabledSprite.myWidth;
 		tab.height = tab.enabledSprite.myHeight;
 		tab.tooltip = tooltip;
@@ -2068,16 +2068,16 @@ public class Widget {
 
 	public static void sprite1(int id, int sprite) {
 		Widget class9 = interfaceCache[id];
-		class9.disabledSprite = ClientKT.spriteCache.lookup(sprite);
+		class9.disabledSprite = Client.spriteCache.lookup(sprite);
 	}
 
 	public static void addActionButton(int id, int sprite, int sprite2, int width, int height, String s) {
 		Widget rsi = interfaceCache[id] = new Widget();
-		rsi.disabledSprite = ClientKT.spriteCache.lookup(sprite);
+		rsi.disabledSprite = Client.spriteCache.lookup(sprite);
 		if (sprite2 == sprite)
-			rsi.enabledSprite = ClientKT.spriteCache.lookup(sprite);
+			rsi.enabledSprite = Client.spriteCache.lookup(sprite);
 		else
-			rsi.enabledSprite = ClientKT.spriteCache.lookup(sprite2);
+			rsi.enabledSprite = Client.spriteCache.lookup(sprite2);
 		rsi.tooltip = s;
 		rsi.contentType = 0;
 		rsi.atActionType = 1;
@@ -2091,8 +2091,8 @@ public class Widget {
 
 	public static void addToggleButton(int id, int sprite, int setconfig, int width, int height, String s) {
 		Widget rsi = addInterface(id);
-		rsi.disabledSprite = ClientKT.spriteCache.lookup(sprite);
-		rsi.enabledSprite = ClientKT.spriteCache.lookup(sprite);
+		rsi.disabledSprite = Client.spriteCache.lookup(sprite);
+		rsi.enabledSprite = Client.spriteCache.lookup(sprite);
 		rsi.requiredValues = new int[1];
 		rsi.requiredValues[0] = 1;
 		rsi.valueCompareType = new int[1];
@@ -2223,8 +2223,8 @@ public class Widget {
 		tab.contentType = 0;
 		tab.transparency = transparency;
 		tab.hoverType = 52;
-		tab.disabledSprite = ClientKT.spriteCache.lookup(spriteId);
-		tab.enabledSprite = ClientKT.spriteCache.lookup(spriteId);
+		tab.disabledSprite = Client.spriteCache.lookup(spriteId);
+		tab.enabledSprite = Client.spriteCache.lookup(spriteId);
 		tab.width = 512;
 		tab.height = 334;
 		tab.drawsTransparent = true;
@@ -2467,8 +2467,8 @@ public class Widget {
 		Tab.valueIndexArray[0][0] = 5;
 		Tab.valueIndexArray[0][1] = configFrame;
 		Tab.valueIndexArray[0][2] = 0;
-		Tab.disabledSprite = ClientKT.spriteCache.lookup(bID);// imageLoader(bID, bName);
-		Tab.enabledSprite = ClientKT.spriteCache.lookup(bID2);
+		Tab.disabledSprite = Client.spriteCache.lookup(bID);// imageLoader(bID, bName);
+		Tab.enabledSprite = Client.spriteCache.lookup(bID2);
 		Tab.tooltip = tT;
 	}
 
@@ -2495,8 +2495,8 @@ public class Widget {
 		int id = 50000;
 		int child = 0;
 
-		Sprite disabled = ClientKT.spriteCache.lookup(129);
-		Sprite enabled = ClientKT.spriteCache.lookup(130);
+		Sprite disabled = Client.spriteCache.lookup(129);
+		Sprite enabled = Client.spriteCache.lookup(130);
 		/// Sprite button1 = getSprite(0, interfaceLoader, "miscgraphics");
 		// Sprite button2 = getSprite(9, interfaceLoader, "miscgraphics");
 
@@ -2848,9 +2848,9 @@ public class Widget {
 		hover.requiredValues = original.requiredValues;
 		hover.valueIndexArray = original.valueIndexArray;
 		if (disabledID != -1)
-			hover.disabledSprite = ClientKT.spriteCache.lookup(disabledID);
+			hover.disabledSprite = Client.spriteCache.lookup(disabledID);
 		if (enabledID != -1)
-			hover.enabledSprite = ClientKT.spriteCache.lookup(enabledID);
+			hover.enabledSprite = Client.spriteCache.lookup(enabledID);
 		rsint.totalChildren(1);
 		setBounds(IMAGEID, 0, 0, 0, rsint);
 		rsint.tooltip = original.tooltip;
@@ -2873,9 +2873,9 @@ public class Widget {
 		rsint.requiredValues = requiredValues;
 		rsint.valueIndexArray = valueIndexArray;
 		if (disabledID != -1)
-			rsint.disabledSprite = ClientKT.spriteCache.lookup(disabledID);
+			rsint.disabledSprite = Client.spriteCache.lookup(disabledID);
 		if (enabledID != -1)
-			rsint.enabledSprite = ClientKT.spriteCache.lookup(enabledID);
+			rsint.enabledSprite = Client.spriteCache.lookup(enabledID);
 		rsint.tooltip = tooltip;
 	}
 
@@ -2947,8 +2947,8 @@ public class Widget {
 		rsi.type = 5;
 		rsi.atActionType = 0;
 		rsi.contentType = 0;
-		rsi.disabledSprite = ClientKT.spriteCache.lookup(spriteId);
-		rsi.enabledSprite = ClientKT.spriteCache.lookup(spriteId);
+		rsi.disabledSprite = Client.spriteCache.lookup(spriteId);
+		rsi.enabledSprite = Client.spriteCache.lookup(spriteId);
 
 		// rsi.sprite1.spriteLoader = rsi.sprite2.spriteLoader = true;
 		// rsi.hoverSprite1 = Client.spriteCache.lookup(hoverSpriteId];
@@ -2983,8 +2983,8 @@ public class Widget {
 		tab.contentType = 0;
 		tab.opacity = (byte) 0;
 		tab.hoverType = 52;
-		tab.disabledSprite = ClientKT.spriteCache.lookup(spriteId);
-		tab.enabledSprite = ClientKT.spriteCache.lookup(spriteId);
+		tab.disabledSprite = Client.spriteCache.lookup(spriteId);
+		tab.enabledSprite = Client.spriteCache.lookup(spriteId);
 		tab.width = tab.disabledSprite.myWidth;
 		tab.height = tab.enabledSprite.myHeight - 2;
 	}
@@ -3010,9 +3010,9 @@ public class Widget {
 		tab.valueIndexArray[0][1] = configFrame;
 		tab.valueIndexArray[0][2] = 0;
 		if (disabledSpriteId != -1)
-			tab.disabledSprite = ClientKT.spriteCache.lookup(disabledSpriteId);
+			tab.disabledSprite = Client.spriteCache.lookup(disabledSpriteId);
 		if (enabledSpriteId != -1)
-			tab.enabledSprite = ClientKT.spriteCache.lookup(enabledSpriteId);
+			tab.enabledSprite = Client.spriteCache.lookup(enabledSpriteId);
 	}
 
 	public static void addHoverButtonWConfig(int i, int spriteId, int spriteId2, int width, int height, String text,
@@ -3038,9 +3038,9 @@ public class Widget {
 		tab.valueIndexArray[0][1] = configFrame;
 		tab.valueIndexArray[0][2] = 0;
 		if (spriteId != -1)
-			tab.disabledSprite = ClientKT.spriteCache.lookup(spriteId);
+			tab.disabledSprite = Client.spriteCache.lookup(spriteId);
 		if (spriteId2 != -1)
-			tab.enabledSprite = ClientKT.spriteCache.lookup(spriteId2);
+			tab.enabledSprite = Client.spriteCache.lookup(spriteId2);
 	}
 
 	public static void addHoverButton(int i, int spriteId, int width, int height, String text,
@@ -3060,8 +3060,8 @@ public class Widget {
 		tab.contentType = contentType;
 		tab.opacity = 0;
 		tab.hoverType = hoverOver;
-		tab.disabledSprite = ClientKT.spriteCache.lookup(spriteId);
-		tab.enabledSprite = ClientKT.spriteCache.lookup(spriteId);
+		tab.disabledSprite = Client.spriteCache.lookup(spriteId);
+		tab.enabledSprite = Client.spriteCache.lookup(spriteId);
 		tab.width = width;
 		tab.height = height;
 		tab.tooltip = text;
@@ -3096,8 +3096,8 @@ public class Widget {
 		tab.height = 334;
 		tab.opacity = 0;
 		tab.hoverType = 52;
-		tab.disabledSprite = ClientKT.spriteCache.lookup(spriteId);
-		tab.enabledSprite = ClientKT.spriteCache.lookup(spriteId);
+		tab.disabledSprite = Client.spriteCache.lookup(spriteId);
+		tab.enabledSprite = Client.spriteCache.lookup(spriteId);
 	}
 
 	public static void addBankItem(int index, Boolean hasOption) {
@@ -3236,7 +3236,7 @@ public class Widget {
 		RSInterface.contentType = 0;
 		RSInterface.opacity = 0;
 		RSInterface.hoverType = 52;
-		RSInterface.disabledSprite = ClientKT.spriteCache.lookup(LUNAR_HOVER_BOX_SPRITES_START + spriteOffset);
+		RSInterface.disabledSprite = Client.spriteCache.lookup(LUNAR_HOVER_BOX_SPRITES_START + spriteOffset);
 		RSInterface.width = 500;
 		RSInterface.height = 500;
 		RSInterface.tooltip = "";
@@ -3249,7 +3249,7 @@ public class Widget {
 		RSInterface.contentType = 0;
 		RSInterface.opacity = 0;
 		RSInterface.hoverType = 52;
-		RSInterface.disabledSprite = ClientKT.spriteCache.lookup(LUNAR_RUNE_SPRITES_START + spriteOffset);
+		RSInterface.disabledSprite = Client.spriteCache.lookup(LUNAR_RUNE_SPRITES_START + spriteOffset);
 		RSInterface.width = 500;
 		RSInterface.height = 500;
 	}
@@ -3321,8 +3321,8 @@ public class Widget {
 		rsInterface.valueIndexArray[2][0] = 1;
 		rsInterface.valueIndexArray[2][1] = 6;
 		rsInterface.valueIndexArray[2][2] = 0;
-		rsInterface.enabledSprite = ClientKT.spriteCache.lookup(LUNAR_ON_SPRITES_START + spriteOffset);
-		rsInterface.disabledSprite = ClientKT.spriteCache.lookup(LUNAR_OFF_SPRITES_START + spriteOffset);
+		rsInterface.enabledSprite = Client.spriteCache.lookup(LUNAR_ON_SPRITES_START + spriteOffset);
+		rsInterface.disabledSprite = Client.spriteCache.lookup(LUNAR_OFF_SPRITES_START + spriteOffset);
 
 		Widget hover = addInterface(ID + 1);
 		hover.parent = ID;
@@ -3391,8 +3391,8 @@ public class Widget {
 		rsInterface.valueIndexArray[3][0] = 1;
 		rsInterface.valueIndexArray[3][1] = 6;
 		rsInterface.valueIndexArray[3][2] = 0;
-		rsInterface.enabledSprite = ClientKT.spriteCache.lookup(LUNAR_ON_SPRITES_START + spriteOffset);
-		rsInterface.disabledSprite = ClientKT.spriteCache.lookup(LUNAR_OFF_SPRITES_START + spriteOffset);
+		rsInterface.enabledSprite = Client.spriteCache.lookup(LUNAR_ON_SPRITES_START + spriteOffset);
+		rsInterface.disabledSprite = Client.spriteCache.lookup(LUNAR_OFF_SPRITES_START + spriteOffset);
 
 		Widget hover = addInterface(ID + 1);
 		hover.parent = ID;
@@ -3464,8 +3464,8 @@ public class Widget {
 		rsInterface.valueIndexArray[3][0] = 1;
 		rsInterface.valueIndexArray[3][1] = 6;
 		rsInterface.valueIndexArray[3][2] = 0;
-		rsInterface.enabledSprite = ClientKT.spriteCache.lookup(LUNAR_ON_SPRITES_START + spriteOffset);
-		rsInterface.disabledSprite = ClientKT.spriteCache.lookup(LUNAR_OFF_SPRITES_START + spriteOffset);
+		rsInterface.enabledSprite = Client.spriteCache.lookup(LUNAR_ON_SPRITES_START + spriteOffset);
+		rsInterface.disabledSprite = Client.spriteCache.lookup(LUNAR_OFF_SPRITES_START + spriteOffset);
 
 		Widget hover = addInterface(ID + 1);
 		hover.parent = ID;
@@ -3537,8 +3537,8 @@ public class Widget {
 		rsInterface.valueIndexArray[3][0] = 1;
 		rsInterface.valueIndexArray[3][1] = 6;
 		rsInterface.valueIndexArray[3][2] = 0;
-		rsInterface.enabledSprite = ClientKT.spriteCache.lookup(LUNAR_ON_SPRITES_START + spriteOffset);
-		rsInterface.disabledSprite = ClientKT.spriteCache.lookup(LUNAR_OFF_SPRITES_START + spriteOffset);
+		rsInterface.enabledSprite = Client.spriteCache.lookup(LUNAR_ON_SPRITES_START + spriteOffset);
+		rsInterface.disabledSprite = Client.spriteCache.lookup(LUNAR_OFF_SPRITES_START + spriteOffset);
 		Widget hover = addInterface(ID + 1);
 		hover.parent = ID;
 		hover.hoverType = -1;
@@ -3997,8 +3997,8 @@ public class Widget {
 		Widget tab = addInterface(id);
 		tab.atActionType = OPTION_CLOSE;
 		tab.type = TYPE_HOVER;
-		tab.enabledSprite = ClientKT.spriteCache.lookup(enabledSprite);
-		tab.disabledSprite = ClientKT.spriteCache.lookup(disabledSprite);
+		tab.enabledSprite = Client.spriteCache.lookup(enabledSprite);
+		tab.disabledSprite = Client.spriteCache.lookup(disabledSprite);
 		tab.width = tab.enabledSprite.myWidth;
 		tab.height = tab.disabledSprite.myHeight;
 		tab.toggled = false;
@@ -4014,8 +4014,8 @@ public class Widget {
 		tab.tooltip = tooltip;
 		tab.atActionType = 1;
 		tab.type = TYPE_HOVER;
-		tab.enabledSprite = ClientKT.spriteCache.lookup(enabledSprite);
-		tab.disabledSprite = ClientKT.spriteCache.lookup(disabledSprite);
+		tab.enabledSprite = Client.spriteCache.lookup(enabledSprite);
+		tab.disabledSprite = Client.spriteCache.lookup(disabledSprite);
 		tab.width = tab.enabledSprite.myWidth;
 		tab.height = tab.disabledSprite.myHeight;
 		tab.toggled = false;
@@ -4028,8 +4028,8 @@ public class Widget {
 		tab.tooltip = tooltip;
 		tab.atActionType = 1;
 		tab.type = TYPE_HOVER;
-		tab.enabledSprite = ClientKT.spriteCache.lookup(enabledSprite);
-		tab.disabledSprite = ClientKT.spriteCache.lookup(disabledSprite);
+		tab.enabledSprite = Client.spriteCache.lookup(enabledSprite);
+		tab.disabledSprite = Client.spriteCache.lookup(disabledSprite);
 		tab.width = tab.enabledSprite.myWidth;
 		tab.height = tab.disabledSprite.myHeight;
 		tab.msgX = tab.width / 2;
@@ -4078,8 +4078,8 @@ public class Widget {
 		tab.tooltip = tooltip;
 		tab.atActionType = OPTION_OK;
 		tab.type = TYPE_CONFIG;
-		tab.enabledSprite = ClientKT.spriteCache.lookup(enabledSprite);
-		tab.disabledSprite = ClientKT.spriteCache.lookup(disabledSprite);
+		tab.enabledSprite = Client.spriteCache.lookup(enabledSprite);
+		tab.disabledSprite = Client.spriteCache.lookup(disabledSprite);
 		tab.width = tab.enabledSprite.myWidth;
 		tab.height = tab.disabledSprite.myHeight;
 		tab.active = false;
@@ -4091,9 +4091,9 @@ public class Widget {
 		tab.tooltip = tooltip;
 		tab.atActionType = OPTION_OK;
 		tab.type = TYPE_ADJUSTABLE_CONFIG;
-		tab.enabledSprite = ClientKT.spriteCache.lookup(sprite);
-		tab.enabledAltSprite = ClientKT.spriteCache.lookup(enabledSpriteBehind);
-		tab.disabledAltSprite = ClientKT.spriteCache.lookup(disabledSpriteBehind);
+		tab.enabledSprite = Client.spriteCache.lookup(sprite);
+		tab.enabledAltSprite = Client.spriteCache.lookup(enabledSpriteBehind);
+		tab.disabledAltSprite = Client.spriteCache.lookup(disabledSpriteBehind);
 		tab.width = tab.enabledAltSprite.myWidth;
 		tab.height = tab.disabledAltSprite.myHeight;
 		tab.spriteOpacity = opacity;
@@ -4105,12 +4105,12 @@ public class Widget {
 		tab.tooltip = tooltip;
 		tab.atActionType = OPTION_OK;
 		tab.type = TYPE_CONFIG_HOVER;
-		tab.enabledSprite = ClientKT.spriteCache.lookup(enabledSprite);
-		tab.disabledSprite = ClientKT.spriteCache.lookup(disabledSprite);
+		tab.enabledSprite = Client.spriteCache.lookup(enabledSprite);
+		tab.disabledSprite = Client.spriteCache.lookup(disabledSprite);
 		tab.width = tab.enabledSprite.myWidth;
 		tab.height = tab.disabledSprite.myHeight;
-		tab.enabledAltSprite = ClientKT.spriteCache.lookup(enabledAltSprite);
-		tab.disabledAltSprite = ClientKT.spriteCache.lookup(disabledAltSprite);
+		tab.enabledAltSprite = Client.spriteCache.lookup(enabledAltSprite);
+		tab.disabledAltSprite = Client.spriteCache.lookup(disabledAltSprite);
 		tab.spriteOpacity = 255;
 	}
 
@@ -4120,12 +4120,12 @@ public class Widget {
 		tab.tooltip = tooltip;
 		tab.atActionType = OPTION_OK;
 		tab.type = TYPE_CONFIG_HOVER;
-		tab.enabledSprite = ClientKT.spriteCache.lookup(enabledSprite);
-		tab.disabledSprite = ClientKT.spriteCache.lookup(disabledSprite);
+		tab.enabledSprite = Client.spriteCache.lookup(enabledSprite);
+		tab.disabledSprite = Client.spriteCache.lookup(disabledSprite);
 		tab.width = tab.enabledSprite.myWidth;
 		tab.height = tab.disabledSprite.myHeight;
-		tab.enabledAltSprite = ClientKT.spriteCache.lookup(enabledAltSprite);
-		tab.disabledAltSprite = ClientKT.spriteCache.lookup(disabledAltSprite);
+		tab.enabledAltSprite = Client.spriteCache.lookup(enabledAltSprite);
+		tab.disabledAltSprite = Client.spriteCache.lookup(disabledAltSprite);
 		tab.buttonsToDisable = buttonsToDisable;
 		tab.active = active;
 		tab.spriteOpacity = 255;
@@ -4138,12 +4138,12 @@ public class Widget {
 		tab.tooltip = tooltip;
 		tab.atActionType = OPTION_OK;
 		tab.type = TYPE_CONFIG_HOVER;
-		tab.enabledSprite = ClientKT.spriteCache.lookup(enabledSprite);
-		tab.disabledSprite = ClientKT.spriteCache.lookup(disabledSprite);
+		tab.enabledSprite = Client.spriteCache.lookup(enabledSprite);
+		tab.disabledSprite = Client.spriteCache.lookup(disabledSprite);
 		tab.width = tab.enabledSprite.myWidth;
 		tab.height = tab.disabledSprite.myHeight;
-		tab.enabledAltSprite = ClientKT.spriteCache.lookup(enabledAltSprite);
-		tab.disabledAltSprite = ClientKT.spriteCache.lookup(disabledAltSprite);
+		tab.enabledAltSprite = Client.spriteCache.lookup(enabledAltSprite);
+		tab.disabledAltSprite = Client.spriteCache.lookup(disabledAltSprite);
 		tab.buttonsToDisable = buttonsToDisable;
 		tab.active = active;
 		tab.msgX = tab.width / 2;
@@ -4193,7 +4193,7 @@ public class Widget {
 
 	public static void slider(int id, double min, double max, int icon, int background, int contentType) {
 		Widget widget = addInterface(id);
-		widget.slider = new Slider(ClientKT.spriteCache.lookup(icon), ClientKT.spriteCache.lookup(background), min, max);
+		widget.slider = new Slider(Client.spriteCache.lookup(icon), Client.spriteCache.lookup(background), min, max);
 		widget.type = TYPE_SLIDER;
 		widget.contentType = contentType;
 	}
@@ -4229,8 +4229,8 @@ public class Widget {
 		widget.type = TYPE_ROTATING;
 		widget.atActionType = 0;
 		widget.contentType = 0;
-		widget.disabledSprite = ClientKT.spriteCache.lookup(spriteId);
-		widget.enabledSprite = ClientKT.spriteCache.lookup(spriteId);
+		widget.disabledSprite = Client.spriteCache.lookup(spriteId);
+		widget.enabledSprite = Client.spriteCache.lookup(spriteId);
 		widget.width = widget.disabledSprite.myWidth;
 		widget.height = widget.enabledSprite.myHeight - 2;
 	}
@@ -4333,7 +4333,7 @@ public class Widget {
 		}
 
 		if (type == 3) {
-			model = ClientKT.localPlayer.getHeadModel();
+			model = Client.localPlayer.getHeadModel();
 		}
 
 		if (type == 4) {

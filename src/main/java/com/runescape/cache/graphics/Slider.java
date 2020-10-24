@@ -1,6 +1,6 @@
 package com.runescape.cache.graphics;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.graphics.sprite.Sprite;
 import com.runescape.cache.graphics.widget.Widget;
 import com.runescape.draw.Rasterizer3D;
@@ -27,7 +27,7 @@ public class Slider {
 
     public static void handleSlider(int mX, int mY) {
 
-        int tabInterfaceId = ClientKT.tabInterfaceIDs[ClientKT.tabId];
+        int tabInterfaceId = Client.tabInterfaceIDs[Client.tabId];
 
         if (tabInterfaceId != -1) {
 
@@ -45,12 +45,12 @@ public class Slider {
                 Widget child = Widget.interfaceCache[childId];
                 if (child == null || child.slider == null)
                     continue;
-                child.slider.handleClick(mX, mY, ClientKT.frameMode == ClientKT.ScreenMode.FIXED ? 519 : 0, ClientKT.frameMode == ClientKT.ScreenMode.FIXED ? 168 : 0, child.contentType);
+                child.slider.handleClick(mX, mY, Client.frameMode == Client.ScreenMode.FIXED ? 519 : 0, Client.frameMode == Client.ScreenMode.FIXED ? 168 : 0, child.contentType);
             }
-            ClientKT.tabAreaAltered = true;
+            Client.tabAreaAltered = true;
         }
 
-        int interfaceId = ClientKT.openInterfaceId;
+        int interfaceId = Client.openInterfaceId;
         if (interfaceId != -1) {
             Widget widget = Widget.interfaceCache[interfaceId];
             if (widget == null ||
@@ -74,8 +74,8 @@ public class Slider {
     }
 
     public void handleClick(int mouseX, int mouseY, int offsetX, int offsetY, int contentType) {
-        int mX = ClientKT.instance.mouseX;
-        int mY = ClientKT.instance.mouseY;
+        int mX = Client.instance.mouseX;
+        int mY = Client.instance.mouseY;
         if (mX - offsetX >= x && mX - offsetX <= x + length
                 && mY - offsetY >= y + images[1].myHeight / 2 - images[0].myHeight / 2
                 && mY - offsetY <= y + images[1].myHeight / 2 + images[0].myHeight / 2) {
@@ -100,19 +100,19 @@ public class Slider {
     private void handleContent(int contentType) {
         switch (contentType) {
             case ZOOM:
-                ClientKT.cameraZoom = (int) (minValue + maxValue - value);
+                Client.cameraZoom = (int) (minValue + maxValue - value);
                 break;
             case BRIGHTNESS:
-                ClientKT.brightnessState = minValue + maxValue - value;
+                Client.brightnessState = minValue + maxValue - value;
                 Rasterizer3D.setBrightness(minValue + maxValue - value);
                 break;
             case MUSIC:
-                ClientKT.instance.changeMusicVolume((int) (minValue + maxValue - value));
+                Client.instance.changeMusicVolume((int) (minValue + maxValue - value));
                 break;
             case SOUND:
                 break;
         }
-        ClientKT.instance.savePlayerData();
+        Client.instance.savePlayerData();
     }
 
     public double getPercentage() {

@@ -1,6 +1,6 @@
 package com.runescape.cache.def;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.FileArchive;
 import com.runescape.cache.anim.Frame;
 import com.runescape.cache.config.VariableBits;
@@ -39,7 +39,7 @@ public final class NpcDefinition {
 	public static Buffer dataBuf;
 	public static int[] offsets;
 	public static NpcDefinition[] cache;
-	public static ClientKT clientKTInstance;
+	public static Client clientInstance;
 	public static ReferenceCache modelCache = new ReferenceCache(30);
 	public final int anInt64;
 	public int turn90CCWAnimIndex;
@@ -311,10 +311,10 @@ public final class NpcDefinition {
 			int variable = varBit.getSetting();
 			int low = varBit.getLow();
 			int high = varBit.getHigh();
-			int mask = ClientKT.BIT_MASKS[high - low];
-			child = clientKTInstance.settings[variable] >> low & mask;
+			int mask = Client.BIT_MASKS[high - low];
+			child = clientInstance.settings[variable] >> low & mask;
 		} else if (settingId != -1)
-			child = clientKTInstance.settings[settingId];
+			child = clientInstance.settings[settingId];
 		if (child < 0 || child >= childrenIDs.length || childrenIDs[child] == -1)
 			return null;
 		else

@@ -3,8 +3,8 @@ package com.runescape.draw.teleports;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 
-import com.runescape.ClientKT;
-import com.runescape.ClientKT.ScreenMode;
+import com.runescape.Client;
+import com.runescape.Client.ScreenMode;
 import com.runescape.cache.graphics.RSFont;
 import com.runescape.draw.Rasterizer2D;
 
@@ -22,11 +22,11 @@ public class TeleportChatBox {
 	private static HierarchyOption selectedHierarchy;
 
 	public static void draw(int offsetX, int offsetY) {
-		int mouseX = ClientKT.instance.mouseX;
-		int mouseY = ClientKT.instance.mouseY - (ClientKT.frameHeight - 165) + offsetY;
-		int chatboxWidth = ClientKT.frameMode == ScreenMode.FIXED ? 501 : 498;
+		int mouseX = Client.instance.mouseX;
+		int mouseY = Client.instance.mouseY - (Client.frameHeight - 165) + offsetY;
+		int chatboxWidth = Client.frameMode == ScreenMode.FIXED ? 501 : 498;
 		int chatboxHeight = 166;
-		boolean click = ClientKT.instance.clickMode3 == 1;
+		boolean click = Client.instance.clickMode3 == 1;
 		Rasterizer2D.drawHorizontalLine(10, 24 + offsetY, chatboxWidth, 0x847963,
 				255);
 		Rasterizer2D.drawHorizontalLine(10, 23 + offsetY, chatboxWidth, 0x847963,
@@ -36,13 +36,13 @@ public class TeleportChatBox {
 		int spriteDrawX = (offsetX + 7);
 		int spriteDrawY = (offsetY + 7);
 		boolean closeHover = mouseX >= spriteDrawX && mouseX <= (spriteDrawX + 15) && mouseY >= spriteDrawY && mouseY <= (spriteDrawY + 15);
-		ClientKT.spriteCache.draw(closeHover ? 138 : 137, spriteDrawX, spriteDrawY);
+		Client.spriteCache.draw(closeHover ? 138 : 137, spriteDrawX, spriteDrawY);
 		if (click && closeHover) {
 			close();
 			return;
 		}
 
-		final RSFont font = ClientKT.instance.newRegularFont;
+		final RSFont font = Client.instance.newRegularFont;
 		int optionX = 13 + offsetX;
 		int optionY = 36 + offsetY;
 		int index = 0;
@@ -67,7 +67,7 @@ public class TeleportChatBox {
 			font.drawBasicString(hierarchyOption.getName(), 15 + optionX, optionY, 0x000000, -1);
 			if (hierarchyOption.getIndex() == null) {
 				int textWidth = font.getTextWidth(hierarchyOption.getName());
-				ClientKT.spriteCache.draw(615, 20 + textWidth + optionX, optionY - 9, true);
+				Client.spriteCache.draw(615, 20 + textWidth + optionX, optionY - 9, true);
 				/*int color = 0x847963;
 
 				Rasterizer2D.drawHorizontalLine(20 + textWidth + optionX, optionY - 4,
@@ -144,7 +144,7 @@ public class TeleportChatBox {
 
 				if (hierarchyOption.getIndex() == null) {
 					int textWidth = font.getTextWidth(hierarchyOption.getName());
-					ClientKT.spriteCache.draw(615, 20 + textWidth + optionX, optionY - 10, true);
+					Client.spriteCache.draw(615, 20 + textWidth + optionX, optionY - 10, true);
 					/*Rasterizer2D.drawHorizontalLine(20 + textWidth + optionX, optionY - 4,
 							10, 0x847963);
 
@@ -289,7 +289,7 @@ public class TeleportChatBox {
 			// Send packet
 			final int[] index = teleport.getIndex();
 			if (index.length == 2) {
-				ClientKT.instance.packetSender.sendTeleportSelection(index[0], index[1]);
+				Client.instance.packetSender.sendTeleportSelection(index[0], index[1]);
 			}
 
 			// Reset selected teleport
@@ -310,17 +310,17 @@ public class TeleportChatBox {
 	}
 
 	public static boolean isOpen() {
-		return ClientKT.instance.inputDialogState == 3;
+		return Client.instance.inputDialogState == 3;
 	}
 	
 	public static void open() {
-		ClientKT.instance.inputDialogState = 3;
-		ClientKT.updateChatbox = true;
+		Client.instance.inputDialogState = 3;
+		Client.updateChatbox = true;
 	}
 
 	public static void close() {
-		ClientKT.instance.inputDialogState = 0;
-		ClientKT.updateChatbox = true;
+		Client.instance.inputDialogState = 0;
+		Client.updateChatbox = true;
 	}
 
 	private static final HierarchyOption[] HIERARCHY_OPTIONS = {

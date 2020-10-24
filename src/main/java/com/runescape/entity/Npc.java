@@ -1,6 +1,6 @@
 package com.runescape.entity;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.cache.anim.Animation;
 import com.runescape.cache.anim.Frame;
 import com.runescape.cache.anim.Graphic;
@@ -17,7 +17,7 @@ public final class Npc extends Mob {
         if (ownerIndex == -1) {
             return true;
         }
-        return (ClientKT.instance.localPlayerIndex == ownerIndex);
+        return (Client.instance.localPlayerIndex == ownerIndex);
     }
 
     public int getHeadIcon() {

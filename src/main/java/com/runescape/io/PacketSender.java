@@ -1,6 +1,6 @@
 package com.runescape.io;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.net.IsaacCipher;
 import com.runescape.util.ChatMessageCodec;
 
@@ -58,9 +58,9 @@ public class PacketSender {
         int savedPosition = buffer.currentPosition;
         buffer.writeByteS(colour);
         buffer.writeByteS(effect);
-        ClientKT.instance.chatBuffer.currentPosition = 0;
-        ChatMessageCodec.encode(message, ClientKT.instance.chatBuffer);
-        buffer.writeReverseDataA(ClientKT.instance.chatBuffer.payload, 0, ClientKT.instance.chatBuffer.currentPosition);
+        Client.instance.chatBuffer.currentPosition = 0;
+        ChatMessageCodec.encode(message, Client.instance.chatBuffer);
+        buffer.writeReverseDataA(Client.instance.chatBuffer.payload, 0, Client.instance.chatBuffer.currentPosition);
         buffer.writeBytes(buffer.currentPosition - savedPosition);
         
         /*buffer.writeOpcode(4);

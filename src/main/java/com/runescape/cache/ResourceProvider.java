@@ -10,7 +10,7 @@ import java.net.Socket;
 import java.util.zip.CRC32;
 import java.util.zip.GZIPInputStream;
 
-import com.runescape.ClientKT;
+import com.runescape.Client;
 import com.runescape.collection.Deque;
 import com.runescape.collection.Queue;
 import com.runescape.io.Buffer;
@@ -79,7 +79,7 @@ public final class ResourceProvider implements Runnable {
     private int deadTime;
     private long lastRequestTime;
     private int[] landscapes;
-    private ClientKT clientKTInstance;
+    private Client clientInstance;
     private int completedSize;
     private int remainingData;
     private int[] musicPriorities;
@@ -186,8 +186,8 @@ public final class ResourceProvider implements Runnable {
                 for (int skip = 0; skip < remainingData; skip += inputStream.read(data, skip + read, remainingData - skip))
                     ;
                 if (remainingData + completedSize >= data.length && current != null) {
-                    if (clientKTInstance.indices[0] != null)
-                        clientKTInstance.indices[current.dataType + 1].writeFile(data.length, data, current.ID);
+                    if (clientInstance.indices[0] != null)
+                        clientInstance.indices[current.dataType + 1].writeFile(data.length, data, current.ID);
                     if (!current.incomplete && current.dataType == 3) {
                         current.incomplete = true;
                         current.dataType = 93;
@@ -215,7 +215,7 @@ public final class ResourceProvider implements Runnable {
         }
     }
 
-    public void initialize(FileArchive archive, ClientKT clientKT) {
+    public void initialize(FileArchive archive, Client client) {
 
         for (int i = 0; i < crcNames.length; i++) {
             byte[] crc_file = archive.readFile(crcNames[i]);
@@ -266,9 +266,9 @@ public final class ResourceProvider implements Runnable {
         file_amounts[0] = data.length;
         System.out.println("Loaded: " + file_amounts[0] + " models");
 
-        clientKTInstance = clientKT;
+        clientInstance = client;
         running = true;
-        clientKTInstance.startRunnable(this, 2);
+        clientInstance.startRunnable(this, 2);
     }
 
     public int remaining() {
@@ -374,7 +374,7 @@ public final class ResourceProvider implements Runnable {
             while (running) {
                 tick++;
                 int sleepTime = 20;
-                if (maximumPriority == 0 && clientKTInstance.indices[0] != null)
+                if (maximumPriority == 0 && clientInstance.indices[0] != null)
                     sleepTime = 50;
                 try {
                     Thread.sleep(sleepTime);
@@ -441,7 +441,7 @@ public final class ResourceProvider implements Runnable {
     }
 
     public void loadExtra(int type, int file) {
-        if (clientKTInstance.indices[0] == null) {
+        if (clientInstance.indices[0] == null) {
             return;
         } else if (maximumPriority == 0) {
             return;
@@ -539,11 +539,11 @@ public final class ResourceProvider implements Runnable {
     }
 
     public void requestExtra(byte priority, int type, int file) {
-        if (clientKTInstance.indices[0] == null)
+        if (clientInstance.indices[0] == null)
             return;
         //if (versions[type][file] == 0)
         //	return;
-        byte[] data = clientKTInstance.indices[type + 1].decompress(file);
+        byte[] data = clientInstance.indices[type + 1].decompress(file);
         if (crcMatches(crcs[type][file], data))
             return;
         fileStatus[type][file] = priority;
@@ -606,8 +606,8 @@ public final class ResourceProvider implements Runnable {
             expectingData = true;
             byte data[] = null;
 
-            if (clientKTInstance.indices[0] != null)
-                data = clientKTInstance.indices[resource.dataType + 1].decompress(resource.ID);
+            if (clientInstance.indices[0] != null)
+                data = clientInstance.indices[resource.dataType + 1].decompress(resource.ID);
 
             //CRC MATCHING
             /*if (Configuration.JAGCACHED_ENABLED) {
@@ -711,7 +711,7 @@ public final class ResourceProvider implements Runnable {
 
     public int getChecksum(int type, int id) {
         int crc = -1;
-        byte[] data = clientKTInstance.indices[type + 1].decompress(id);
+        byte[] data = clientInstance.indices[type + 1].decompress(id);
         if (data != null) {
             int length = data.length - 2;
             crc32.reset();
@@ -723,7 +723,7 @@ public final class ResourceProvider implements Runnable {
 
     public int getVersion(int type, int id) {
         int version = -1;
-        byte[] data = clientKTInstance.indices[type + 1].decompress(id);
+        byte[] data = clientInstance.indices[type + 1].decompress(id);
         if (data != null) {
             int length = data.length - 2;
             version = ((data[length] & 0xff) << 8) + (data[length + 1] & 0xff);
@@ -735,7 +735,7 @@ public final class ResourceProvider implements Runnable {
         try {
             DataOutputStream out = new DataOutputStream(new FileOutputStream(SignLink.findcachedir() + type + "_crc.dat"));
             int total = 0;
-            for (int index = 0; index < clientKTInstance.indices[type + 1].getFileCount(); index++) {
+            for (int index = 0; index < clientInstance.indices[type + 1].getFileCount(); index++) {
                 out.writeInt(getChecksum(type, index));
                 total++;
             }
@@ -749,7 +749,7 @@ public final class ResourceProvider implements Runnable {
     public void writeVersionList(int type) {
         try {
             DataOutputStream out = new DataOutputStream(new FileOutputStream(SignLink.findcachedir() + type + "_version.dat"));
-            for (int index = 0; index < clientKTInstance.indices[type + 1].getFileCount(); index++) {
+            for (int index = 0; index < clientInstance.indices[type + 1].getFileCount(); index++) {
                 out.writeShort(getVersion(type, index));
             }
             out.close();

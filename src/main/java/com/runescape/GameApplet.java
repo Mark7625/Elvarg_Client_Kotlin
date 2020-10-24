@@ -117,8 +117,8 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
         isApplet = false;
         myWidth = w;
         myHeight = h;
-        gameFrame = new GameFrame(this, myWidth, myHeight, ClientKT.frameMode == ClientKT.ScreenMode.RESIZABLE,
-                ClientKT.frameMode == ClientKT.ScreenMode.FULLSCREEN);
+        gameFrame = new GameFrame(this, myWidth, myHeight, Client.frameMode == Client.ScreenMode.RESIZABLE,
+                Client.frameMode == Client.ScreenMode.FULLSCREEN);
         gameFrame.setFocusTraversalKeysEnabled(false);
         graphics = getGameComponent().getGraphics();
         fullGameScreen = new ProducingGraphicsBuffer(myWidth, myHeight);
@@ -303,47 +303,47 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
     public void mouseWheelMoved(MouseWheelEvent event) {
         int rotation = event.getWheelRotation();
         handleInterfaceScrolling(event);
-        if (ClientKT.showChatComponents && mouseX > 0 && mouseX < 512 && mouseY > ClientKT.frameHeight - 165 && mouseY < ClientKT.frameHeight - 25) {
-            int scrollPos = ClientKT.anInt1089;
+        if (Client.showChatComponents && mouseX > 0 && mouseX < 512 && mouseY > Client.frameHeight - 165 && mouseY < Client.frameHeight - 25) {
+            int scrollPos = Client.anInt1089;
             scrollPos -= rotation * 30;
             if (scrollPos < 0)
                 scrollPos = 0;
-            if (scrollPos > ClientKT.anInt1211 - 110)
-                scrollPos = ClientKT.anInt1211 - 110;
-            if (ClientKT.anInt1089 != scrollPos) {
-                ClientKT.anInt1089 = scrollPos;
-                ClientKT.updateChatbox = true;
+            if (scrollPos > Client.anInt1211 - 110)
+                scrollPos = Client.anInt1211 - 110;
+            if (Client.anInt1089 != scrollPos) {
+                Client.anInt1089 = scrollPos;
+                Client.updateChatbox = true;
             }
         }
         
-        if (ClientKT.openInterfaceId == -1) {
+        if (Client.openInterfaceId == -1) {
 			if (canZoom) {
-				if (ClientKT.showChatComponents && mouseX > 0 && mouseX < 512 && mouseY > ClientKT.frameHeight - 165 && mouseY < ClientKT.frameHeight - 25) {
+				if (Client.showChatComponents && mouseX > 0 && mouseX < 512 && mouseY > Client.frameHeight - 165 && mouseY < Client.frameHeight - 25) {
 					return;
 				}
 				if (rotation == -1) {
-					if (ClientKT.cameraZoom > 50) {
-						ClientKT.cameraZoom -= 25;
+					if (Client.cameraZoom > 50) {
+						Client.cameraZoom -= 25;
 					}
 				} else {
-					if (ClientKT.cameraZoom < 1450) {
-						ClientKT.cameraZoom += 25;
+					if (Client.cameraZoom < 1450) {
+						Client.cameraZoom += 25;
 					}
 				}
 				
                 int setting = 0;
 
-                if (ClientKT.cameraZoom > 1000) {
+                if (Client.cameraZoom > 1000) {
                     setting = 4;
-                } else if (ClientKT.cameraZoom > 800) {
+                } else if (Client.cameraZoom > 800) {
                     setting = 3;
-                } else if (ClientKT.cameraZoom > 600) {
+                } else if (Client.cameraZoom > 600) {
                     setting = 2;
-                } else if (ClientKT.cameraZoom > 400) {
+                } else if (Client.cameraZoom > 400) {
                     setting = 1;
                 }
-                ClientKT.instance.settings[168] = setting;
-                Widget.interfaceCache[SettingsWidget.ZOOM_SLIDER].slider.setValue(ClientKT.cameraZoom);
+                Client.instance.settings[168] = setting;
+                Widget.interfaceCache[SettingsWidget.ZOOM_SLIDER].slider.setValue(Client.cameraZoom);
 			}
 		}
     }
@@ -357,16 +357,16 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
         int offsetX = 0;
         int offsetY = 0;
         int childID = 0;
-        int tabInterfaceID = ClientKT.tabInterfaceIDs[ClientKT.tabId];
-        boolean fixed = ClientKT.frameMode == ClientKT.ScreenMode.FIXED;
+        int tabInterfaceID = Client.tabInterfaceIDs[Client.tabId];
+        boolean fixed = Client.frameMode == Client.ScreenMode.FIXED;
         if (tabInterfaceID != -1) {
             Widget tab = Widget.interfaceCache[tabInterfaceID];
             if (tab != null) {
-                offsetX = fixed ? 558 : ClientKT.frameWidth - 217;
-                offsetY = fixed ? 205 : ClientKT.frameHeight - 298;
-                if (!fixed && ClientKT.stackSideStones && ClientKT.frameWidth <= 1000) {
-                    offsetX = ClientKT.frameWidth - 198;
-                    offsetY = ClientKT.frameHeight - 335;
+                offsetX = fixed ? 558 : Client.frameWidth - 217;
+                offsetY = fixed ? 205 : Client.frameHeight - 298;
+                if (!fixed && Client.stackSideStones && Client.frameWidth <= 1000) {
+                    offsetX = Client.frameWidth - 198;
+                    offsetY = Client.frameHeight - 335;
                 }
                 for (int index = 0; index < tab.children.length; index++) {
                     if (Widget.interfaceCache[tab.children[index]].scrollMax > 0) {
@@ -378,7 +378,7 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
                         break;
                     }
                 }
-                if (ClientKT.showTabComponents && mouseX > offsetX + positionX && mouseY > offsetY + positionY && mouseX < offsetX + positionX + width
+                if (Client.showTabComponents && mouseX > offsetX + positionX && mouseY > offsetY + positionY && mouseX < offsetX + positionX + width
                         && mouseY < offsetY + positionY + height) {
                 	canZoom = false;
                     Widget.interfaceCache[tab.children[childID]].scrollPosition += rotation * 30;
@@ -387,20 +387,20 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
                 }
             }
         }
-        if (ClientKT.openInterfaceId != -1) {
+        if (Client.openInterfaceId != -1) {
 			int w = 512, h = 334;
-			int x = (ClientKT.frameWidth / 2) - 240;
-			int y = (ClientKT.frameHeight / 2) - 167;
-			int count = ClientKT.stackSideStones ? 3 : 4;
-			if (ClientKT.frameMode != ClientKT.ScreenMode.FIXED) {
+			int x = (Client.frameWidth / 2) - 240;
+			int y = (Client.frameHeight / 2) - 167;
+			int count = Client.stackSideStones ? 3 : 4;
+			if (Client.frameMode != Client.ScreenMode.FIXED) {
 				for (int i = 0; i < count; i++) {
-					if (x + w > (ClientKT.frameWidth - 225)) {
+					if (x + w > (Client.frameWidth - 225)) {
 						x = x - 30;
 						if (x < 0) {
 							x = 0;
 						}
 					}
-					if (y + h > (ClientKT.frameHeight - 182)) {
+					if (y + h > (Client.frameHeight - 182)) {
 						y = y - 30;
 						if (y < 0) {
 							y = 0;
@@ -408,10 +408,10 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
 					}
 				}
 			}
-            Widget rsi = Widget.interfaceCache[ClientKT.openInterfaceId];
+            Widget rsi = Widget.interfaceCache[Client.openInterfaceId];
             if (rsi != null) {
-                offsetX = ClientKT.frameMode == ClientKT.ScreenMode.FIXED ? 4 : x;
-                offsetY = ClientKT.frameMode == ClientKT.ScreenMode.FIXED ? 4 : y;
+                offsetX = Client.frameMode == Client.ScreenMode.FIXED ? 4 : x;
+                offsetY = Client.frameMode == Client.ScreenMode.FIXED ? 4 : y;
                 for (int index = 0; index < rsi.children.length; index++) {
                     if (Widget.interfaceCache[rsi.children[index]].scrollMax > 0) {
                         childID = index;
@@ -540,7 +540,7 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
         int j = keyevent.getKeyChar();
 
         if (keyevent.isShiftDown()) {
-            ClientKT.shiftDown = true;
+            Client.shiftDown = true;
         }
         
 		if (dialogueSkipKeys(i)) {
@@ -551,8 +551,8 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
             return;
 
         if (i == KeyEvent.VK_ESCAPE && Configuration.escapeCloseInterface) {
-            if (ClientKT.loggedIn && ClientKT.openInterfaceId != -1) {
-                ClientKT.instance. packetSender.sendInterfaceClear();
+            if (Client.loggedIn && Client.openInterfaceId != -1) {
+                Client.instance. packetSender.sendInterfaceClear();
                 return;
             }
         }
@@ -601,7 +601,7 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
         char c = keyevent.getKeyChar();
 
         if (i == KeyEvent.VK_SHIFT) {
-            ClientKT.shiftDown = false;
+            Client.shiftDown = false;
         }
 
         if (c < '\036')
@@ -629,13 +629,13 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
     }
     
 	public boolean dialogueSkipKeys(int key) {
-		if (ClientKT.instance.backDialogueId != -1 && !ClientKT.instance.continuedDialogue
-				&& ClientKT.instance.inputDialogState == 0 && !ClientKT.instance.messagePromptRaised
+		if (Client.instance.backDialogueId != -1 && !Client.instance.continuedDialogue
+				&& Client.instance.inputDialogState == 0 && !Client.instance.messagePromptRaised
 				&& !Console.consoleOpen) {
 			int select = -1;
 			if (key >= 49 && key <= 53) {
 				int option = key - 49;
-				switch (ClientKT.instance.backDialogueId) {
+				switch (Client.instance.backDialogueId) {
 				case 2459:
 					select = 2461 + option;
 					break;
@@ -651,7 +651,7 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
 				}
 			}
 			if (select != -1) {
-				ClientKT.instance.packetSender.sendButtonClick(select);
+				Client.instance.packetSender.sendButtonClick(select);
 				return true;
 			}
 		}
@@ -685,7 +685,7 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
         for (int i = 0; i < 128; i++) {
             keyArray[i] = 0;
         }
-        ClientKT.shiftDown = false;
+        Client.shiftDown = false;
     }
 
     public final void windowActivated(WindowEvent windowevent) {
@@ -761,20 +761,20 @@ public class GameApplet extends Applet implements Runnable, MouseListener, Mouse
         FontMetrics fontmetrics1 = getGameComponent().getFontMetrics(font1);
         if (shouldClearScreen) {
             graphics.setColor(Color.black);
-            graphics.fillRect(0, 0, ClientKT.frameWidth, ClientKT.frameHeight);
+            graphics.fillRect(0, 0, Client.frameWidth, Client.frameHeight);
             shouldClearScreen = false;
         }
         Color color = new Color(140, 17, 17);
-        int y = ClientKT.frameHeight / 2 - 18;
+        int y = Client.frameHeight / 2 - 18;
         graphics.setColor(color);
-        graphics.drawRect(ClientKT.frameWidth / 2 - 152, y, 304, 34);
-        graphics.fillRect(ClientKT.frameWidth / 2 - 150, y + 2, percentage * 3, 30);
+        graphics.drawRect(Client.frameWidth / 2 - 152, y, 304, 34);
+        graphics.fillRect(Client.frameWidth / 2 - 150, y + 2, percentage * 3, 30);
         graphics.setColor(Color.black);
-        graphics.fillRect((ClientKT.frameWidth / 2 - 150) + percentage * 3, y + 2, 300 - percentage * 3, 30);
+        graphics.fillRect((Client.frameWidth / 2 - 150) + percentage * 3, y + 2, 300 - percentage * 3, 30);
         graphics.setFont(font);
         graphics.setColor(Color.white);
-        graphics.drawString(loadingText, (ClientKT.frameWidth - fontmetrics.stringWidth(loadingText)) / 2, y + 22);
-        graphics.drawString("", (ClientKT.frameWidth - fontmetrics1.stringWidth("")) / 2, y - 8);
+        graphics.drawString(loadingText, (Client.frameWidth - fontmetrics.stringWidth(loadingText)) / 2, y + 22);
+        graphics.drawString("", (Client.frameWidth - fontmetrics1.stringWidth("")) / 2, y - 8);
     }
 
 }
